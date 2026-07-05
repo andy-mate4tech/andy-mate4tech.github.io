@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<Placemark><name>Hobart Airport</name><description>Airport</description><Point><coordinates>147.5102,-42.8361,0</coordinates></Point></Placemark>
+<Placemark><name>Hobart</name><description>Hotel</description><Point><coordinates>147.3272,-42.8821,0</coordinates></Point></Placemark>
+<Placemark><name>Richmond Bridge</name><description>Attraction</description><Point><coordinates>147.438,-42.735,0</coordinates></Point></Placemark>
+<Placemark><name>Port Arthur Historic Site</name><description>Attraction</description><Point><coordinates>147.852,-43.142,0</coordinates></Point></Placemark>
+<Placemark><name>Freycinet Visitor Centre</name><description>Attraction</description><Point><coordinates>148.295,-42.123,0</coordinates></Point></Placemark>
+<Placemark><name>Wineglass Bay Lookout</name><description>Attraction</description><Point><coordinates>148.303,-42.165,0</coordinates></Point></Placemark>
+<Placemark><name>Cape Tourville</name><description>Scenic</description><Point><coordinates>148.273,-42.197,0</coordinates></Point></Placemark>
+<Placemark><name>Bicheno</name><description>Hotel</description><Point><coordinates>148.304,-41.874,0</coordinates></Point></Placemark>
+<Placemark><name>Bay of Fires</name><description>Scenic</description><Point><coordinates>148.282,-41.253,0</coordinates></Point></Placemark>
+<Placemark><name>Launceston</name><description>Hotel</description><Point><coordinates>147.144,-41.433,0</coordinates></Point></Placemark>
+<Placemark><name>Cataract Gorge</name><description>Attraction</description><Point><coordinates>147.122,-41.434,0</coordinates></Point></Placemark>
+<Placemark><name>Ben Lomond</name><description>Attraction</description><Point><coordinates>147.663,-41.541,0</coordinates></Point></Placemark>
+<Placemark><name>Cradle Mountain Visitor Centre</name><description>Hotel</description><Point><coordinates>145.938,-41.592,0</coordinates></Point></Placemark>
+<Placemark><name>Dove Lake</name><description>Scenic</description><Point><coordinates>145.93,-41.66,0</coordinates></Point></Placemark>
+<Placemark><name>Ronny Creek</name><description>Scenic</description><Point><coordinates>145.936,-41.639,0</coordinates></Point></Placemark>
+<Placemark><name>Devils at Cradle</name><description>Attraction</description><Point><coordinates>145.937,-41.592,0</coordinates></Point></Placemark>
+<Placemark><name>Sheffield</name><description>Scenic</description><Point><coordinates>146.338,-41.389,0</coordinates></Point></Placemark>
+<Placemark><name>Ashgrove Cheese</name><description>Food</description><Point><coordinates>146.669,-41.462,0</coordinates></Point></Placemark>
+<Placemark><name>Mount Wellington</name><description>Scenic</description><Point><coordinates>147.235,-42.896,0</coordinates></Point></Placemark>
+</Document></kml>

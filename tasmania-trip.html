@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Tasmania Family Winter Adventure — 12–20 July 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#132226; --slate:#1E3A3F; --slate-2:#2C4A50; --snow:#F6F2E9; --paper:#FBF8F2;
+    --sandstone:#C99B6A; --sandstone-deep:#A9764A; --ember:#C1502E; --moss:#4C6B57; --ice:#BFD8D6;
+    --amber:#8A5A2B;
+    --line: rgba(19,34,38,0.14); --shadow: 0 18px 40px -20px rgba(19,34,38,0.35); --radius: 18px;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Manrope',sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4,.display{font-family:'Fraunces',serif; letter-spacing:-0.01em; margin:0;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 20px;}
+  ::selection{background:var(--sandstone); color:var(--ink);}
+
+  #progress{position:fixed; top:0; left:0; height:3px; background:var(--ember); z-index:300; width:0%; transition:width .1s linear;}
+
+  .hero{
+    position:relative;
+    background: radial-gradient(1200px 500px at 15% -10%, rgba(199,155,106,0.35), transparent 60%),
+                radial-gradient(900px 500px at 90% 0%, rgba(191,216,214,0.25), transparent 55%),
+                linear-gradient(180deg,#0E1B1E 0%, #15292D 55%, #1E3A3F 100%);
+    color:var(--snow); padding:72px 0 48px; overflow:hidden;
+  }
+  .hero::after{content:""; position:absolute; inset:auto 0 0 0; height:100px; background:linear-gradient(180deg, transparent, var(--paper));}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--sandstone); font-weight:700; margin-bottom:16px;}
+  .hero h1{font-size:clamp(30px,7vw,58px); font-weight:600; max-width:780px; color:#fff;}
+  .hero .sub{max-width:620px; margin-top:16px; font-size:16.5px; color:var(--ice);}
+  .hero-meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .pill{border:1px solid rgba(246,242,233,0.28); background:rgba(246,242,233,0.06); padding:9px 14px; border-radius:99px; font-size:13px; font-weight:600; display:flex; align-items:center; gap:7px; color:var(--snow);}
+  .pill b{color:var(--sandstone); font-weight:800;}
+
+  .alert{
+    margin-top:26px; background:rgba(193,80,46,0.14); border:1px solid rgba(193,80,46,0.4);
+    border-radius:14px; padding:16px 18px; font-size:13.5px; color:var(--snow); line-height:1.6;
+  }
+  .alert b{color:var(--sandstone);}
+
+  .quickref{background:#fff; border-bottom:1px solid var(--line); padding:36px 0;}
+  .qr-head{margin-bottom:18px;}
+  .qr-head h2{font-size:clamp(20px,4vw,28px); font-weight:600;}
+  .qr-head p{margin-top:6px; color:var(--slate-2); font-size:13.5px;}
+  .qr-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;}
+  @media (max-width:800px){.qr-grid{grid-template-columns:1fr;}}
+  .qr-card{background:var(--snow); border:1px solid var(--line); border-radius:14px; padding:16px 18px; overflow-x:auto;}
+  .qr-card h3{font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ember); font-weight:800; margin-bottom:10px;}
+  table.qr{width:100%; border-collapse:collapse; font-size:13px; white-space:nowrap;}
+  table.qr th{text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--slate-2); padding:6px 8px; border-bottom:2px solid var(--line);}
+  table.qr td{padding:7px 8px; border-bottom:1px solid var(--line); font-weight:600;}
+  table.qr td.muted{font-weight:400; color:var(--slate-2);}
+  table.qr tr:last-child td{border-bottom:none;}
+  table.qr tr.total td{font-weight:800; border-top:2px solid var(--line); border-bottom:none; padding-top:9px;}
+  .qr-badge{display:inline-block; background:var(--sandstone); color:#fff; font-size:10.5px; font-weight:800; padding:2px 8px; border-radius:99px; margin-left:6px;}
+  .qr-map-card{background:var(--snow); border:1px solid var(--line); border-radius:14px; overflow:hidden;}
+  .qr-map-card iframe{width:100%; height:320px; border:0; display:block;}
+  .qr-map-link{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; background:#fff; padding:12px 16px; font-size:13px; font-weight:700;}
+  .qr-map-link a{color:var(--ember); text-decoration:none;}
+  .qr-route-chips{display:flex; flex-wrap:wrap; gap:6px; padding:14px 16px; background:#fff; border-top:1px solid var(--line);}
+  .qr-route-chips span{font-size:11.5px; font-weight:700; background:var(--paper); border:1px solid var(--line); padding:5px 10px; border-radius:99px; color:var(--slate);}
+  .qr-route-chips span::after{content:"→"; margin-left:6px; color:var(--sandstone-deep);}
+  .qr-route-chips span:last-child::after{content:"";}
+
+
+  .nav-inner{display:flex; gap:6px; overflow-x:auto; padding:10px 20px; max-width:1180px; margin:0 auto; scrollbar-width:none; -webkit-overflow-scrolling:touch;}
+  .nav-inner::-webkit-scrollbar{display:none;}
+  .nav a{white-space:nowrap; font-size:12.5px; font-weight:700; padding:9px 13px; border-radius:99px; color:var(--slate); text-decoration:none; border:1px solid transparent; min-height:36px; display:flex; align-items:center;}
+  .nav a.active{background:var(--slate); color:#fff;}
+  .nav a:hover{border-color:var(--line);}
+
+  section{padding:56px 0;}
+  .section-head{max-width:640px; margin-bottom:32px;}
+  .kicker{font-size:12.5px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--ember); margin-bottom:10px; display:block;}
+  .section-head h2{font-size:clamp(24px,4.5vw,38px); font-weight:600;}
+  .section-head p{margin-top:12px; color:var(--slate-2); font-size:15.5px;}
+
+  .glance-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px;}
+  .glance-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px; position:relative;}
+  .glance-card .day-tag{font-family:'Fraunces',serif; font-size:30px; font-weight:700; color:var(--sandstone-deep); line-height:1;}
+  .glance-card .date{font-size:12.5px; color:var(--slate-2); font-weight:700; margin-top:6px;}
+  .glance-card h4{margin-top:8px; font-size:16px; font-weight:600;}
+  .glance-card p{margin:6px 0 0; font-size:13px; color:var(--slate-2);}
+  .glance-card .region{position:absolute; top:16px; right:16px; font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--moss);}
+  .glance-card a{display:inline-block; margin-top:10px; font-size:12px; font-weight:800; color:var(--ember); text-decoration:none;}
+
+  .info-cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;}
+  .info-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);}
+  .info-card h4{font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ember); font-weight:800;}
+  .info-card .big{font-family:'Fraunces',serif; font-size:23px; margin-top:8px;}
+  .info-card p{color:var(--slate-2); font-size:13.5px; margin-top:8px;}
+  .info-card ul{padding-left:18px; margin:8px 0 0; color:var(--slate-2); font-size:13.5px;}
+
+  .day{scroll-margin-top:60px; padding:52px 0; border-top:1px solid var(--line);}
+  .day:nth-of-type(odd){background:#fff;}
+  .day-head{display:flex; gap:18px; align-items:flex-end; flex-wrap:wrap; margin-bottom:22px;}
+  .day-num{font-family:'Fraunces',serif; font-size:56px; font-weight:700; color:var(--ice); -webkit-text-stroke:1.2px var(--slate); line-height:1;}
+  .day-titles .weekday{font-size:12.5px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--ember);}
+  .day-titles h3{font-size:clamp(21px,3.6vw,32px); font-weight:600; margin-top:5px;}
+  .day-titles .region-badge{display:inline-block; margin-top:9px; font-size:11.5px; font-weight:700; letter-spacing:0.04em; background:var(--slate); color:var(--snow); padding:5px 12px; border-radius:99px;}
+
+  .day-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:24px;}
+  @media (max-width:860px){.day-grid{grid-template-columns:1fr;}}
+
+  .video-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px;}
+  .video-card{display:block; border-radius:14px; overflow:hidden; background:var(--slate); position:relative; box-shadow:var(--shadow); aspect-ratio:16/9; text-decoration:none;}
+  .video-card img{width:100%; height:100%; object-fit:cover; opacity:0.9; display:block;}
+  .video-card .play-badge{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(14,27,30,0.05), rgba(14,27,30,0.6));}
+  .video-card .play-badge svg{width:38px; height:38px;}
+  .video-card .cap{position:absolute; left:9px; right:9px; bottom:9px; color:#fff; font-size:11.5px; font-weight:700; text-shadow:0 1px 4px rgba(0,0,0,0.7); line-height:1.3;}
+  .video-card .short-tag{position:absolute; top:8px; right:8px; background:var(--ember); color:#fff; font-size:9.5px; font-weight:800; padding:3px 7px; border-radius:99px; letter-spacing:0.04em;}
+  .video-hint{font-size:11.5px; color:var(--slate-2); margin-top:8px;}
+  .more-photos{margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:800; color:var(--ember); text-decoration:none; border-bottom:1px dashed var(--ember); padding-bottom:2px;}
+
+  .drive-card{margin-top:14px; background:var(--snow); border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px;}
+  .drive-card .row{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; font-size:13.5px;}
+  .drive-card .row + .row{margin-top:8px; padding-top:8px; border-top:1px dashed var(--line);}
+  .drive-card .label{color:var(--slate-2); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:0.05em;}
+  .drive-card .val{font-weight:700; text-align:right;}
+
+  .map-frame{margin-top:14px; border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow);}
+  .map-frame iframe{width:100%; height:210px; border:0; display:block;}
+  .map-link{display:flex; justify-content:space-between; align-items:center; background:#fff; padding:9px 14px; font-size:12.5px; font-weight:700; gap:8px;}
+  .map-link a{color:var(--ember); text-decoration:none; white-space:nowrap;}
+
+  .story{margin-top:20px; background:linear-gradient(180deg, rgba(76,107,87,0.06), transparent); border-left:3px solid var(--moss); padding:16px 18px; border-radius:6px; font-size:14.5px; color:var(--slate);}
+  .story h4{font-size:11.5px; text-transform:uppercase; letter-spacing:0.1em; color:var(--moss); font-weight:800; margin-bottom:7px;}
+
+  .night-card{margin-top:18px; background:linear-gradient(160deg,#fff,#FBF1E6); border:1px solid var(--line); border-radius:14px; padding:16px 18px;}
+  .night-card h4{font-size:11.5px; text-transform:uppercase; letter-spacing:0.1em; color:var(--amber); font-weight:800; margin-bottom:8px;}
+  .night-card .venue{display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap;}
+  .night-card .venue + .venue{margin-top:10px; padding-top:10px; border-top:1px dashed var(--line);}
+  .night-card .vname{font-family:'Fraunces',serif; font-weight:600; font-size:15px;}
+  .night-card .vnote{font-size:12.5px; color:var(--slate-2); margin-top:2px; display:block;}
+
+  details.timeline-toggle{margin-top:20px;}
+  details.timeline-toggle summary{
+    cursor:pointer; list-style:none; font-size:13px; font-weight:800; color:var(--slate);
+    display:flex; align-items:center; gap:8px; padding:12px 14px; background:#fff; border:1px solid var(--line);
+    border-radius:12px; user-select:none;
+  }
+  details.timeline-toggle summary::-webkit-details-marker{display:none;}
+  details.timeline-toggle summary::after{content:"▾"; margin-left:auto; color:var(--ember); transition:transform .2s;}
+  details.timeline-toggle[open] summary::after{transform:rotate(180deg);}
+  .timeline{list-style:none; margin:10px 0 0; padding:0;}
+  .timeline li{display:grid; grid-template-columns:64px 1fr; gap:12px; padding:10px 0; border-bottom:1px dashed var(--line);}
+  .timeline li:last-child{border-bottom:none;}
+  .timeline .time{font-weight:800; font-size:12.5px; color:var(--sandstone-deep); white-space:nowrap;}
+  .timeline .txt b{font-weight:700; font-size:13.5px;}
+  .timeline .txt span{display:block; color:var(--slate-2); font-size:13px; margin-top:2px;}
+
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .cardset{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:12px;}
+  .mini-card{background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 16px;}
+  .mini-card .tag{font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--ember);}
+  .mini-card h5{font-size:14.5px; font-weight:700; margin-top:6px; font-family:'Fraunces',serif;}
+  .mini-card p{font-size:12.5px; color:var(--slate-2); margin-top:4px;}
+
+  .insta-card{background:linear-gradient(160deg,#fff, #FBF3EA); border:1px solid var(--line); border-radius:14px; padding:14px 16px;}
+  .insta-card .tag{color:var(--sandstone-deep);}
+  .insta-card a{display:inline-flex; align-items:center; gap:6px; margin-top:9px; font-size:12px; font-weight:800; color:var(--ember); text-decoration:none;}
+
+  .section-title-sm{font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; color:var(--slate-2); margin:22px 0 4px;}
+
+  .foot-section{background:var(--slate); color:var(--snow);}
+  .foot-section .kicker{color:var(--sandstone);}
+  .foot-section .section-head p{color:var(--ice);}
+  .pack-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;}
+  .pack-card{background:rgba(246,242,233,0.06); border:1px solid rgba(246,242,233,0.14); border-radius:14px; padding:16px 18px;}
+  .pack-card h5{font-size:12.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--sandstone); font-weight:800;}
+  .pack-card ul{margin:9px 0 0; padding-left:18px; font-size:13px; color:var(--ice);}
+
+  table.budget{width:100%; border-collapse:collapse; margin-top:10px; font-size:13.5px;}
+  table.budget th, table.budget td{padding:9px 10px; text-align:left; border-bottom:1px solid rgba(246,242,233,0.14);}
+  table.budget th{color:var(--sandstone); font-size:11px; text-transform:uppercase; letter-spacing:0.05em;}
+  table.budget tr:last-child td{font-weight:800; color:#fff;}
+
+  .link-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; margin-top:12px;}
+  .link-grid a{background:rgba(246,242,233,0.06); border:1px solid rgba(246,242,233,0.14); border-radius:12px; padding:11px 15px; font-size:13px; font-weight:700; text-decoration:none; color:var(--snow); display:flex; justify-content:space-between; align-items:center; min-height:44px;}
+  .link-grid a:hover{background:rgba(246,242,233,0.12);}
+
+  footer{padding:32px 0; text-align:center; font-size:12.5px; color:rgba(246,242,233,0.55);}
+
+  @media (max-width:600px){
+    .hero{padding:56px 0 40px;}
+    section{padding:40px 0;}
+    .day{padding:36px 0;}
+    .day-num{font-size:42px;}
+    .drive-card .val{text-align:left;}
+    .map-frame iframe{height:180px;}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">✦ Anand Family Road Trip</span>
+    <h1>Tasmania, in the dead of winter.</h1>
+    <p class="sub">A full-loop, snow-dusted, penguin-spotting, wombat-chasing road trip around the island — Hobart's sandstone waterfront, the alpine slopes of Ben Lomond, Cradle Mountain's wilderness, and now the wild west coast at Strahan.</p>
+    <div class="hero-meta">
+      <div class="pill">📅 <b>12–20 July 2026</b></div>
+      <div class="pill">✈️ JQ757 out · JQ756 back <b>(now needs to move a day later)</b></div>
+      <div class="pill">🧑‍🤝‍🧑 <b>4</b> travellers · 3 adults + 1 child</div>
+      <div class="pill">🚗 <b>~1,450 km</b> full-island loop with Strahan</div>
+    </div>
+    <div class="alert">
+      <b>🧭 About adding Strahan:</b> Strahan sits on the wild west coast — a genuine 4–4.5 hour drive from everywhere else on this loop, so there's no way to fold it into the existing 8 days without cutting something big. This version adds one extra night in Strahan and stretches the trip to <b>9 days / 8 nights</b>, which means moving your return flight from Sun 19 Jul to <b>Mon 20 Jul</b> (contact Jetstar to shift JQ756) and booking one more night's accommodation. One knock-on effect: Salamanca Market only runs on Saturdays, and Saturday is now your Strahan → Hobart transit day — so you'll get Salamanca Place itself on the Sunday, just without the market stalls. If you'd rather keep the original flight dates, the easiest fix is a scenic flight/seaplane day trip to Strahan instead of driving — ask at Cradle Mountain Helicopters.
+    </div>
+  </div>
+</div>
+
+<section class="quickref">
+  <div class="wrap">
+    <div class="qr-head">
+      <h2>Trip at a glance — book &amp; plan from this</h2>
+      <p>Everything below is a summary of the full itinerary — accommodation nights for booking, the latest sensible departure time each day, and the whole loop on one map. Scroll down for the day-by-day detail on history, food, photo spots and bars.</p>
+    </div>
+
+    <div class="qr-grid">
+      <div class="qr-card">
+        <h3>🏨 Where to book — nights per place</h3>
+        <table class="qr">
+          <tr><th>Stay</th><th>Nights</th><th>Check&#8209;in</th><th>Check&#8209;out</th></tr>
+          <tr><td>Hobart <span class="qr-badge">arrival</span></td><td>2</td><td class="muted">Sun 12 Jul</td><td class="muted">Tue 14 Jul</td></tr>
+          <tr><td>Bicheno / Coles Bay</td><td>1</td><td class="muted">Tue 14 Jul</td><td class="muted">Wed 15 Jul</td></tr>
+          <tr><td>Launceston</td><td>2</td><td class="muted">Wed 15 Jul</td><td class="muted">Fri 17 Jul</td></tr>
+          <tr><td>Cradle Mountain</td><td>1</td><td class="muted">Fri 17 Jul</td><td class="muted">Sat 18 Jul</td></tr>
+          <tr><td>Strahan <span class="qr-badge">new</span></td><td>1</td><td class="muted">Sat 18 Jul</td><td class="muted">Sun 19 Jul</td></tr>
+          <tr><td>Hobart <span class="qr-badge">return</span></td><td>1</td><td class="muted">Sun 19 Jul</td><td class="muted">Mon 20 Jul</td></tr>
+          <tr class="total"><td>Total</td><td>8 nights</td><td colspan="2"></td></tr>
+        </table>
+      </div>
+
+      <div class="qr-card">
+        <h3>⏰ Leave-by schedule — manage the drive time</h3>
+        <table class="qr">
+          <tr><th>Day</th><th>From</th><th>Leave by</th><th>To</th><th>Arrive</th></tr>
+          <tr><td>D1 Sun 12</td><td class="muted">Airport</td><td>9:10am land</td><td>Hobart</td><td class="muted">11am</td></tr>
+          <tr><td>D2 Mon 13</td><td class="muted">Hobart</td><td>8:30am</td><td>Port Arthur (day trip)</td><td class="muted">back 6:30pm</td></tr>
+          <tr><td>D3 Tue 14</td><td class="muted">Hobart</td><td>8:00am</td><td>Bicheno</td><td class="muted">~5:00pm</td></tr>
+          <tr><td>D4 Wed 15</td><td class="muted">Bicheno</td><td>8:30am</td><td>Launceston</td><td class="muted">~2:30pm</td></tr>
+          <tr><td>D5 Thu 16</td><td class="muted">Launceston</td><td>7:00am</td><td>Ben Lomond (day trip)</td><td class="muted">back 5:30pm</td></tr>
+          <tr><td>D6 Fri 17</td><td class="muted">Launceston</td><td>8:00am</td><td>Cradle Mountain</td><td class="muted">~11:30am</td></tr>
+          <tr><td>D7 Sat 18</td><td class="muted">Cradle Mountain</td><td>8:30am</td><td>Strahan</td><td class="muted">~12:00pm</td></tr>
+          <tr><td>D8 Sun 19</td><td class="muted">Strahan</td><td>8:30am</td><td>Hobart</td><td class="muted">~1:30pm</td></tr>
+          <tr><td>D9 Mon 20</td><td class="muted">Hobart</td><td>8:00am</td><td>Airport</td><td class="muted">flight home</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="qr-map-card">
+      <iframe src="https://maps.google.com/maps?saddr=Hobart+Airport&daddr=MONA+Museum+Hobart+to:Port+Arthur+Historic+Site+to:Wineglass+Bay+Freycinet+National+Park+to:Bicheno+to:Bay+of+Fires+Tasmania+to:Launceston+Tasmania+to:Ben+Lomond+Ski+Village+to:Cradle+Mountain+Visitor+Centre+to:Strahan+Tasmania+to:Hobart+Airport&t=&z=7&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+      <div class="qr-route-chips">
+        <span>Hobart Airport</span><span>MONA</span><span>Port Arthur</span><span>Freycinet</span><span>Bicheno</span><span>Bay of Fires</span><span>Launceston</span><span>Ben Lomond</span><span>Cradle Mountain</span><span>Strahan</span><span>Hobart Airport</span>
+      </div>
+      <div class="qr-map-link">
+        <span>Full 9-day driving loop, start to finish</span>
+        <a href="https://www.google.com/maps/dir/Hobart+Airport/MONA+Museum+Hobart/Port+Arthur+Historic+Site/Freycinet+National+Park/Bicheno/Bay+of+Fires+Tasmania/Launceston+Tasmania/Ben+Lomond+Ski+Village/Cradle+Mountain+Visitor+Centre/Strahan+Tasmania/Hobart+Airport" target="_blank">Open full route in Google Maps ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="nav">
+  <div class="nav-inner" id="navInner"></div>
+</nav>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The loop</span>
+      <h2>Nine days, one island, no repeats.</h2>
+      <p>Hobart → Tasman Peninsula → East Coast → Bay of Fires → Launceston → Ben Lomond → Cradle Mountain → Strahan → Hobart. Tap any day to jump to the drive details, the history, the food, the photo spots — and a good bar for the evening.</p>
+    </div>
+    <div class="glance-grid" id="glanceGrid"></div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="info-cards">
+      <div class="info-card">
+        <h4>Flights</h4>
+        <div class="big">JQ757 → JQ756</div>
+        <p>Brisbane–Hobart 6:30am–9:10am on the way in. Return leg needs to move from Sun 19 Jul to Mon 20 Jul to fit Strahan in — call Jetstar to shift it.</p>
+      </div>
+      <div class="info-card">
+        <h4>The car</h4>
+        <div class="big">7‑seater SUV</div>
+        <p>Snow chains are a legal must for Ben Lomond in July — hire in Launceston before you head up. Fill up before Strahan and before Cradle Mountain; both have limited fuel options.</p>
+      </div>
+      <div class="info-card">
+        <h4>Where you'll sleep</h4>
+        <p style="margin-top:0;">Hobart (x2) → Bicheno → Launceston (x2) → Cradle Mountain → <b>Strahan (new)</b> → Hobart. 2 rooms every night.</p>
+        <ul>
+          <li>Hotel Grand Chancellor, Hobart</li>
+          <li>Beachfront Bicheno / Freycinet Lodge</li>
+          <li>Peppers Silo, Launceston</li>
+          <li>Discovery Parks / Peppers Cradle Mountain Lodge</li>
+          <li>Strahan Village or Risby Cove, Strahan</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>Budget, all-in</h4>
+        <div class="big">~$8,200–10,000</div>
+        <p>Excluding flights. Adds one Strahan hotel night, a Gordon River Cruise, and extra fuel/food for the west coast leg on top of the original 8-day estimate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="daysContainer"></div>
+
+<section class="foot-section" id="packing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Before you fly</span>
+      <h2 style="color:#fff;">Winter in Tasmania packs differently.</h2>
+      <p>July temps run 3–12°C in Hobart, well below freezing at Ben Lomond and Cradle Mountain, and Strahan's west coast weather can turn wild and wet with little warning off the Southern Ocean.</p>
+    </div>
+    <div class="pack-grid">
+      <div class="pack-card"><h5>Outer layers</h5><ul><li>Waterproof winter jacket</li><li>Insulated puffer</li><li>Fleece mid-layer</li></ul></div>
+      <div class="pack-card"><h5>Accessories</h5><ul><li>Beanies ×2 each</li><li>Waterproof gloves</li><li>Scarves, warm socks</li></ul></div>
+      <div class="pack-card"><h5>Footwear</h5><ul><li>Waterproof walking shoes</li><li>Casual shoes</li><li>UGGs/slippers for the hotel</li></ul></div>
+      <div class="pack-card"><h5>Ski day</h5><ul><li>Snow/ski pants — essential</li><li>Goggles + waterproof gloves</li><li>Thermal base layers</li></ul></div>
+      <div class="pack-card"><h5>West coast</h5><ul><li>Extra waterproof shell for Strahan</li><li>Sturdy shoes for Hogarth Falls / Ocean Beach</li></ul></div>
+      <div class="pack-card"><h5>The car</h5><ul><li>Phone charger + aux cable</li><li>Snacks, water bottles</li><li>Motion sickness tablets — winding roads</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="foot-section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Save these</span>
+      <h2 style="color:#fff;">Booking links & emergency info</h2>
+    </div>
+    <div class="link-grid">
+      <a href="https://www.vroomvroomvroom.com.au/locations/hobart-airport/" target="_blank">Compare car rentals ↗</a>
+      <a href="https://www.grandchancellorhotels.com/hotel-grand-chancellor-hobart" target="_blank">Hobart hotel ↗</a>
+      <a href="https://www.peppers.com.au/silo-hotel" target="_blank">Launceston — Peppers Silo ↗</a>
+      <a href="https://www.discoveryparks.com.au/tasmania/cradle-mountain" target="_blank">Cradle Mountain stay ↗</a>
+      <a href="https://www.strahanvillage.com.au/" target="_blank">Strahan Village ↗</a>
+      <a href="https://www.gordonrivercruises.com.au/" target="_blank">Gordon River Cruises ↗</a>
+      <a href="https://portarthur.org.au/" target="_blank">Port Arthur tickets ↗</a>
+      <a href="https://mona.net.au/" target="_blank">MONA entry ↗</a>
+      <a href="https://www.skiresort.info/ski-resort/ben-lomond/" target="_blank">Ben Lomond snow report ↗</a>
+      <a href="https://www.bichenopenguintours.com.au/" target="_blank">Bicheno penguins ↗</a>
+      <a href="https://devilsatcradle.com/" target="_blank">Devils at Cradle ↗</a>
+      <a href="https://www.salamancamarket.com.au/" target="_blank">Salamanca Market ↗</a>
+      <a href="http://www.bom.gov.au/tas/" target="_blank">Tasmania weather ↗</a>
+      <a href="https://www.transport.tas.gov.au/" target="_blank">Road conditions ↗</a>
+    </div>
+    <p style="margin-top:20px; font-size:12.5px; color:var(--ice);">Emergency (Police / Fire / Ambulance): <b>000</b> · Roadside assistance: your rental company.</p>
+  </div>
+</section>
+
+<footer>Made for Kishore Anand & family · 12–20 July 2026 · Prices are estimates in AUD, confirm directly with providers. Please drink responsibly — Tasmania's roads are dark, narrow and full of wildlife at night.</footer>
+
+<script>
+/* ---------------------------------------------------------
+   DATA — one object per day. Everything renders from this.
+   Video IDs below were each confirmed against a real search
+   result (title + uploader visible) before being used here.
+--------------------------------------------------------- */
+const DAYS = [
+{
+  num:1, date:"Sun 12 Jul", weekday:"Day one", title:"Welcome to Hobart", region:"Hobart",
+  videos:[["LNErDYzArr0","MONA, the short version",true]],
+  photoQuery:"MONA Hobart Salamanca Place",
+  mapQuery:"MONA Museum Hobart", mapLink:"https://maps.google.com/?cid=14011177854619217109",
+  drive:{dist:"~35 km", time:"~45 min total", road:"Brooker Hwy + local streets", stops:"Airport → Hotel → MONA → Salamanca → Constitution Dock"},
+  timeline:[
+    ["9:10am","Land at Hobart Airport","Collect luggage, head to the rental desks"],
+    ["10:00am","Pick up the rental car","Inspect, load up — snow chains sorted later in Launceston"],
+    ["11:00am","Check in","Hotel Grand Chancellor, waterfront"],
+    ["12:00pm","Lunch at Salamanca Place","Historic sandstone warehouses, cafes & galleries"],
+    ["1:30pm","MONA","Ferry from Brooke Street Pier (25 min) or drive — entry is free, allow 3–4 hours"],
+    ["6:00pm","Constitution Dock","Fishing boats, Victoria Dock, sunset over the water"],
+    ["7:30pm","Dinner","Dier Makr (fine dining) or Drunken Admiral (family seafood)"]
+  ],
+  story:"MONA is built almost entirely underground, carved into sandstone cliffs on the Berriedale peninsula so the two heritage Roy Grounds houses on the site could stay untouched above it. David Walsh — a professional gambler turned collector — opened it in 2011 with no wall labels and no chronological order; you navigate by a companion app called 'The O' instead. A few hundred metres from your hotel, Salamanca Place's honey-coloured sandstone warehouses were built by convict labour in the 1830s to store whaling goods.",
+  eat:[["Salamanca Place cafes","Lunch among the 1830s sandstone warehouses"],["Dier Makr","Fine dining, book ahead"],["Drunken Admiral","Family-friendly seafood on the waterfront"]],
+  activities:[["MONA","3–4 hrs · confronting, brilliant, free entry"],["Constitution Dock","Sunset walk past the fishing fleet"],["Battery Point","5 min from Salamanca — colonial cottages and lanes"]],
+  night:[["Lark Cellar Door & Whisky Bar","Davey St, waterfront — Tasmania's original whisky distillery, now a bar. Ask for a tasting flight."],["Evolve Spirits Bar","MACq 01 Hotel — 500+ spirits, heavy on Tasmanian single malts (Lark, Sullivans Cove, Overeem)."]],
+  insta:[["MONA's mirrored entrance","Shoot straight down the spiral staircase before you descend — the reflection trick photographs perfectly.","monamuseum"],["Salamanca arches at golden hour","Stand at the Montpelier Retreat end looking down the row of warehouses just before sunset.","salamancaplace"]]
+},
+{
+  num:2, date:"Mon 13 Jul", weekday:"Day two", title:"Port Arthur & Richmond", region:"Tasman Peninsula",
+  videos:[["kuWvL1Vfhmw","Tasman Peninsula & Port Arthur",false]],
+  photoQuery:"Port Arthur Historic Site Richmond Bridge Tasmania",
+  mapQuery:"Port Arthur Historic Site", mapLink:"https://maps.google.com/?cid=289296137135721216",
+  drive:{dist:"~200 km round trip", time:"~2.5 hrs", road:"Arthur Highway (A9) via Tasman Hwy", stops:"Hobart → Richmond → Port Arthur → Hobart"},
+  timeline:[
+    ["8:30am","Depart Hobart","Via Tasman Highway, ~1.5 hrs"],
+    ["10:00am","Richmond Village","Australia's oldest stone bridge (1823), bakery, quaint shops"],
+    ["11:00am","Arrive Port Arthur","UNESCO World Heritage convict site, 30+ historic buildings"],
+    ["12:30pm","Lunch","1830 Restaurant & Bar, or a picnic on the grounds"],
+    ["3:00pm","Harbour cruise","20 min, included in entry — passes the Isle of the Dead"],
+    ["4:30pm","Return to Hobart",""],
+    ["6:30pm","Dinner","Frank (Italian) or Ball & Chain Grill (steakhouse)"]
+  ],
+  story:"Port Arthur ran as a penal settlement from the 1830s, built to be inescapable — a peninsula guarded by dog lines. More than 1,000 convicts, soldiers and settlers are buried on the tiny Isle of the Dead just offshore. Richmond Bridge, the quick photo stop on the way, is the oldest standing bridge in Australia — built by convict gangs in 1823 and still carrying traffic 200 years later.",
+  eat:[["1830 Restaurant & Bar","On-site at Port Arthur, seasonal Tasmanian produce"],["Richmond Bakery","Pies and pastries in the village"],["Frank / Ball & Chain Grill","Dinner back in Hobart"]],
+  activities:[["Historic site self-guided walk","40 hectares, ruins and intact buildings"],["Harbour cruise","Isle of the Dead, Point Puer"],["Ghost Tour (optional, evening)","6pm & 8pm, ~$35/adult — may be intense for young kids"]],
+  night:[["Society Salamanca","Battery Point — 500+ spirits in a stylish underground-feeling cocktail den."],["IXL Long Bar","Henry Jones Art Hotel — grand old wool-store warehouse, solid whisky list."]],
+  insta:[["The Penitentiary at golden hour","Shoot from the lawn near the water — the roofless sandstone ruin reflects beautifully in late afternoon light.","portarthurhistoricsite"],["Richmond Bridge from the riverbank","Walk down to the Coal River for the full arch-and-reflection shot.","richmondtasmania"]]
+},
+{
+  num:3, date:"Tue 14 Jul", weekday:"Day three", title:"Freycinet & Wineglass Bay", region:"East Coast",
+  videos:[["t-hWT60aMTE","Freycinet National Park, from above",false],["ku8-GmYne-k","Best beach in Tassie? Wineglass Bay hike",true],["7Fr6Lzr0YWY","Bicheno's little penguins at dusk",false]],
+  photoQuery:"Wineglass Bay Freycinet Honeymoon Bay Tasmania",
+  mapQuery:"Wineglass Bay Lookout", mapLink:"https://maps.google.com/?cid=2959697588719571316",
+  drive:{dist:"~230 km", time:"~3.5 hrs", road:"Tasman Highway via Swansea", stops:"Hobart → Swansea → Freycinet → Coles Bay → Bicheno"},
+  timeline:[
+    ["8:00am","Depart for Freycinet","Via Tasman Highway"],
+    ["10:30am","Swansea","Bakery stop, seaside town on Great Oyster Bay"],
+    ["11:00am","Freycinet park pass","At the visitor centre, ~$31/family"],
+    ["11:30am","Wineglass Bay Lookout walk","3 km return, 1–1.5 hrs, moderate grade"],
+    ["1:30pm","Honeymoon Bay","10-minute easy walk, calm water, great for families"],
+    ["3:30pm","Cape Tourville Lighthouse","600m boardwalk, wheelchair-friendly"],
+    ["5:00pm","Check in, Bicheno",""],
+    ["7:30pm","Bicheno Penguin Tour (optional)","Little penguins return to shore at dusk — book ahead"]
+  ],
+  story:"Wineglass Bay's dreamy name has a dark backstory: whalers worked this coast in the 1820s and 30s, and the bay's water is said to have turned wine-red during the harpooning season. The Hazards — the pink granite range framing the classic lookout photo — are Devonian-era granite, and the peninsula is named after French naval officer Louis de Freycinet, who mapped this coast in 1802.",
+  eat:[["Swansea bakery","Pies and coffee on the drive up"],["Freycinet Marine Farm","Oysters, straight from the bay"],["Pasini's / The Farm Shed, Bicheno","Dinner options"]],
+  activities:[["Wineglass Bay Lookout walk","Moderate, kid-friendly with supervision"],["Honeymoon Bay","Easy, calm-water beach"],["Cape Tourville boardwalk","Wheelchair/pram friendly, 20 min"],["Bicheno penguin tour","Evening, ~$50/adult, book ahead"]],
+  night:[["Waubs Harbour Whisky","Bicheno — small ocean-side distillery and tasting room; genuinely worth timing before dinner."],["The Farm Shed East Coast Wine Centre","Curated wall of the region's best wine, whisky and gin if Waubs is closed."]],
+  insta:[["The classic Wineglass Bay Lookout shot","Arrive before 10am for empty frames.","wineglassbay"],["Cape Tourville boardwalk sunset","Lighthouse silhouette against the coastline, post-4pm in July.","capetourville"]]
+},
+{
+  num:4, date:"Wed 15 Jul", weekday:"Day four", title:"Bay of Fires to Launceston", region:"North Coast",
+  videos:[["D3-LS-UR_iw","Bay of Fires, from above",false],["FQ2AxVIBi6k","The world's longest single-span chairlift",false]],
+  photoQuery:"Bay of Fires Cataract Gorge Launceston Tasmania",
+  mapQuery:"Bay of Fires Conservation Area", mapLink:"https://maps.google.com/?cid=1081929675368947024",
+  drive:{dist:"~260 km", time:"~4 hrs", road:"Tasman Hwy via St Helens, inland via Scottsdale", stops:"Bicheno → Bay of Fires → St Helens → Launceston"},
+  timeline:[
+    ["8:30am","Drive to Bay of Fires","~45 min north via St Helens"],
+    ["9:30am","Bay of Fires","Orange lichen-covered granite, white sand, short walks"],
+    ["11:00am","St Helens","Coffee stop, charming coastal town"],
+    ["12:00pm","Continue to Launceston","Inland via Scottsdale, ~2.5 hrs"],
+    ["2:30pm","Check in","Peppers Silo Launceston — meet Archie the hotel dog"],
+    ["3:00pm","Cataract Gorge Reserve","12 min drive — chairlift, peacocks, dolerite cliffs"],
+    ["5:00pm","Coffee, Launceston CBD",""],
+    ["7:00pm","Dinner","Grain of the Silos, on-site at the hotel"]
+  ],
+  story:"Despite the name, Bay of Fires isn't about the burnt-orange lichen on the boulders — a British navigator named it in 1773 after spotting Aboriginal fires burning along the shore, country that's still Palawa land. In Launceston, Cataract Gorge's chairlift holds the world record for the longest single chairlift span (308m), strung across a natural river basin first opened to visitors in 1972.",
+  eat:[["St Helens cafes","Coffee stop mid-drive"],["Grain of the Silos","Hotel restaurant, local Tasmanian produce"],["Anvers Chocolates","Handmade chocolate in Launceston"]],
+  activities:[["Bay of Fires beach walks","Multiple short trails, very windy in winter"],["Cataract Gorge chairlift","World's longest single-span chairlift, ~$20/adult"]],
+  night:[["The Grumpy Piper","Paterson St — 450+ whiskies and, unusually, a highland bagpipe museum on the walls."],["Launceston Distillery","Hangar 17, near the airport — working distillery inside a 1940s aviation hangar, tastings till late afternoon, worth a detour if you arrive early."]],
+  insta:[["Orange boulders at Bay of Fires","Get low with a wide lens — the lichen glows hardest in soft, early light.","bayoffires"],["Mid-air on the Gorge chairlift","Shoot straight down at the basin — best light is late afternoon.","cataractgorge"]]
+},
+{
+  num:5, date:"Thu 16 Jul", weekday:"Day five ⭐", title:"Ben Lomond ski day", region:"Northeast",
+  videos:[["OJguCDuazqk","A family ski day at Ben Lomond",false]],
+  photoQuery:"Ben Lomond ski Jacobs Ladder Tasmania",
+  mapQuery:"Ben Lomond Ski Village", mapLink:"https://maps.google.com/?cid=1081929675368947936",
+  drive:{dist:"~120 km", time:"~2.5 hrs (mountain roads)", road:"Ben Lomond Rd via Jacobs Ladder switchbacks", stops:"Launceston → Jacobs Ladder → Ben Lomond Village → Launceston"},
+  timeline:[
+    ["7:00am","Depart Launceston","~60 km / 1 hr"],
+    ["8:00am","Jacobs Ladder","Six hairpin switchbacks — fit snow chains before you start climbing"],
+    ["8:30am","Arrive Ben Lomond Village","Elevation 1,460m, Tasmania's only commercial ski resort"],
+    ["9:00am","Ski/board hire, lessons","Especially useful for the first-timer in the group"],
+    ["9:30am–4:00pm","Skiing, snowboarding, tobogganing","6 km of runs — 33% beginner, 50% intermediate, 17% advanced"],
+    ["12:30pm","Lunch, Creek Inn","Hot food, hot chocolate, warm shelter"],
+    ["4:00pm","Descend Jacobs Ladder","Remove chains, take it slow"],
+    ["7:00pm","Dinner, Launceston","Mudbar or Stillwater"]
+  ],
+  story:"Ben Lomond is Tasmania's only commercial ski field and its largest single alpine area — home to five of the state's ten highest peaks. Jacobs Ladder, the six-hairpin gravel climb to the plateau, is Tasmania's highest road, and snow chains are a legal requirement on it from June through September.",
+  eat:[["Creek Inn","On-mountain lunch, hot chocolate"],["Ben Lomond Base cafe","Bumper breakfast buns on the way up"]],
+  activities:[["Skiing & snowboarding","All ability levels, lessons available"],["Tobogganing","Great for the youngest in the group"]],
+  night:[["The Barrel Collective","Brisbane St, Launceston — owner is encyclopaedic on Tasmanian distillers; a great place to warm up after a day on snow."]],
+  insta:[["Jacobs Ladder from the switchbacks","A passenger-seat shot looking back down the hairpins.","benlomondtasmania"],["Ski village in the snow","Wide shot of the plateau with the T-bars running.","benlomondalpine"]]
+},
+{
+  num:6, date:"Fri 17 Jul", weekday:"Day six", title:"Cradle Mountain — wilderness & wombats", region:"Central Highlands",
+  videos:[["VYrv_UvQtEk","Dove Lake & Cradle Mountain, from above",false],["ojYFW1cE7L8","Meet a wild wombat grazing at Cradle Mountain",true],["iiL_nSC1Iao","Sheffield, the town of murals",false]],
+  photoQuery:"Dove Lake Cradle Mountain wombat Ronny Creek",
+  mapQuery:"Dove Lake Cradle Mountain", mapLink:"https://maps.google.com/?cid=3027484711832983472",
+  drive:{dist:"~220 km", time:"~3.5 hrs", road:"Bass Hwy via Deloraine & Sheffield", stops:"Launceston → Deloraine → Ashgrove Cheese → Sheffield → Cradle Mountain"},
+  timeline:[
+    ["8:00am","Depart for Cradle Mountain","Via Deloraine, ~2.5 hrs"],
+    ["10:00am","Deloraine","Coffee at a local cafe"],
+    ["10:20am","Ashgrove Cheese Farm","Tastings of award-winning Tasmanian cheeses, just outside Deloraine"],
+    ["10:50am","Sheffield","'Town of Murals' — quick photo stop"],
+    ["11:30am","Arrive, check in","Discovery Parks, leave the bags"],
+    ["12:00pm","Shuttle to Dove Lake","Free shuttle from the visitor centre, winter schedule"],
+    ["12:30pm","Dove Lake Circuit","6 km loop, ~2 hrs, flat and family-friendly"],
+    ["3:00pm","Ronny Creek boardwalk","THE spot for wild wombats"],
+    ["4:00pm","Devils at Cradle","Tasmanian Devil sanctuary, feeding time, ~$35/adult"],
+    ["6:30pm","Dinner","Hellyers Restaurant or the tavern at Peppers Lodge"]
+  ],
+  story:"Dove Lake sits directly beneath Cradle Mountain's dolerite spires, carved by glaciers during the last ice age. Ronny Creek, the wombat-viewing boardwalk, is also the northern trailhead of the Overland Track. Sheffield reinvented itself as an open-air gallery decades ago, and now has more than 60 murals across its walls.",
+  eat:[["Ashgrove Cheese Farm","Tastings + café, near Deloraine"],["Hellyers Restaurant","Discovery Parks on-site dining, dubbed the highest restaurant in Tasmania"],["Peppers Lodge tavern","Alternative dinner spot"]],
+  activities:[["Dove Lake Circuit walk","6 km, flat, best family walk in the park"],["Ronny Creek wombat spotting","Free, best late afternoon"],["Devils at Cradle","Tasmanian Devil conservation sanctuary"],["Stargazing","Clear winter nights here are exceptional"]],
+  night:[["Hellyers Restaurant","Discovery Parks Cradle Mountain — whisky list and mountain views, worth the name."],["Tavern Bar & Bistro, Cradle Mountain Lodge","Log fire, pool table, wide drinks selection — casual and warm after a cold day."]],
+  insta:[["The boat shed at Dove Lake","The single most photographed shot in Tasmania — best at sunrise.","dovelake"],["Wombat close-up, Ronny Creek","Get low, stay still — they'll often walk right up to the boardwalk.","cradlemountain"]]
+},
+{
+  num:7, date:"Sat 18 Jul", weekday:"Day seven — new", title:"Cradle Mountain to Strahan", region:"West Coast",
+  videos:[["VUv90SkmqqA","Gordon River Cruise & Sarah Island",false]],
+  photoQuery:"Strahan Gordon River Ocean Beach Tasmania",
+  mapQuery:"Strahan Tasmania", mapLink:"https://maps.google.com/?q=Strahan+TAS",
+  drive:{dist:"~140 km", time:"~2–2.5 hrs", road:"Murchison Hwy (A10) via Queenstown", stops:"Cradle Mountain → Queenstown → Strahan"},
+  timeline:[
+    ["8:30am","Depart Cradle Mountain","Breakfast, checkout, pack the car"],
+    ["10:30am","Queenstown","Stop for the bare orange-pink hills — a century of copper mining and smelting stripped this valley bare"],
+    ["11:15am","Continue to Strahan","~40 min further"],
+    ["12:00pm","Check in, Strahan Village or Risby Cove",""],
+    ["1:00pm","Lunch, The Coffee Shack or Hamer's",""],
+    ["2:00pm","Gordon River Cruise (half-day option) or Hogarth Falls walk","Sarah Island, Heritage Landing rainforest, ancient Huon pines — or an easy rainforest stroll if you'd rather stay local"],
+    ["5:30pm","Ocean Beach sunset","Tasmania's longest beach — waves rolling in all the way from South America"],
+    ["7:00pm","Dinner","Hamer's Bar & Bistro, waterfront"]
+  ],
+  story:"Queenstown's bare, rust-coloured hills look almost lunar — a century of copper smelting and clear-felling stripped the valley of vegetation, and it's only in recent decades that it's begun to green over again. Strahan itself grew up around Macquarie Harbour and Sarah Island, a penal colony that predates Port Arthur by nearly a decade and was, by convict reputation, even harsher. The narrow, notoriously rough harbour entrance was named Hell's Gates by the convicts who passed through it on the way in. Piners once felled Huon pine along the Gordon River for shipbuilding — some of the trees still standing at Heritage Landing are thousands of years old.",
+  eat:[["Hamer's Bar & Bistro","Rebuilt 1936, waterfront, log fire — the heart of the town"],["The Coffee Shack","Good coffee and breakfast, gets busy — go early"],["View 42° Restaurant & Bar","Harbour views, seafood buffet"]],
+  activities:[["Gordon River Cruise","Sarah Island + Heritage Landing rainforest walk, ~6 hrs full-day, shorter options available"],["Ocean Beach","Tasmania's longest beach, wild and empty, best at sunset"],["Hogarth Falls walk","Easy 2.1km return through rainforest from People's Park — possible platypus"],["West Coast Wilderness Railway","Heritage steam train between Strahan and Queenstown, seasonal"]],
+  night:[["Hamer's Bar & Bistro","Honestly, there's no dedicated whisky bar this far west — but Hamer's has a good pour, a log fire, and Tasmanian wine and ale by the water."],["Onboard bar, Gordon River Cruise","If you do the evening dinner cruise, drinks are served with sunset views over Hells Gates."]],
+  insta:[["Ocean Beach at sunset","Wide open, wild, and almost always empty — go for the long-exposure wave shot.","oceanbeachstrahan"],["Gordon River reflections","Mirror-calm water and rainforest — best captured from the cruise's outer deck.","gordonrivercruises"]]
+},
+{
+  num:8, date:"Sun 19 Jul", weekday:"Day eight — new", title:"Strahan to Hobart", region:"West → South",
+  videos:[["KkEcel4qteo","Salamanca Market on a Saturday (for reference — you'll visit on a Sunday, so no stalls)",false],["SDqnrszHIj4","Kunanyi / Mount Wellington in the snow",true]],
+  photoQuery:"kunanyi Mount Wellington Salamanca Hobart Tasmania",
+  mapQuery:"kunanyi Mount Wellington", mapLink:"https://maps.google.com/?q=kunanyi+Mount+Wellington",
+  drive:{dist:"~300 km", time:"~4.5 hrs", road:"Lyell Highway (A10) via Queenstown & Derwent Bridge", stops:"Strahan → Queenstown → Derwent Bridge → Hobart"},
+  timeline:[
+    ["8:00am","Breakfast & checkout",""],
+    ["8:30am","Depart for Hobart","Via the Lyell Highway"],
+    ["11:00am","Derwent Bridge — The Wall in the Wilderness","A still-growing 100m timber relief carving of Tasmania's pioneering history — worth the 20 min stop"],
+    ["1:30pm","Arrive Hobart","Check in, drop bags"],
+    ["2:30pm","Salamanca Place","No market today (Saturdays only) but the sandstone precinct and cafes are still lovely"],
+    ["5:00pm","kunanyi / Mount Wellington summit","21km drive, spectacular views over Hobart, can be −5°C — road may close for snow, The Springs is a solid fallback"],
+    ["7:00pm","Farewell dinner","Aloft (rooftop harbour views) or Templo (intimate Italian)"]
+  ],
+  story:"The Wall in the Wilderness at Derwent Bridge is sculptor Greg Duncan's decades-long project: a continuous relief carving in Huon pine and blackwood depicting the pioneers, workers and hydro-electric builders of Tasmania's Central Highlands. In Hobart, kunanyi — dual-named with Mount Wellington in 2013 to recognise its original Palawa name — is topped by the dolerite Organ Pipes, formed roughly 180 million years ago as Gondwana broke apart.",
+  eat:[["Lyell Highway cafes","Derwent Bridge or Hamilton for a coffee break"],["Salamanca Place cafes","Afternoon coffee, no market today"],["Aloft / Templo","Farewell dinner in Hobart"]],
+  activities:[["The Wall in the Wilderness","Derwent Bridge, 20 min stop"],["Salamanca Place","Sandstone precinct, without the Saturday stalls"],["Mount Wellington summit","Panoramic views, check road status for snow closures"]],
+  night:[["The Still","Lark Distillery's whisky lounge, Hobart — 150+ Tasmanian whiskies, a fitting last-night tasting."],["Void Bar, MONA","17 metres underground with occasional live music, if you fancy one more trip out to Berriedale."]],
+  insta:[["Kunanyi's Organ Pipes at sunset","Shoot from the summit boardwalk looking back over Hobart and the Derwent.","kunanyi"],["Salamanca sandstone, quiet Sunday light","Fewer crowds than Saturday — good for clean architectural shots.","salamancaplace"]]
+},
+{
+  num:9, date:"Mon 20 Jul", weekday:"Day nine", title:"Departure", region:"Hobart",
+  videos:[], photoQuery:null,
+  mapQuery:"Hobart Airport", mapLink:"https://maps.google.com/?cid=1081929675368919056",
+  drive:{dist:"~20 km", time:"~20 min", road:"Southern Outlet / Brooker Hwy", stops:"Hobart CBD → Airport"},
+  timeline:[
+    ["7:00am","Final breakfast","Hotel or a quick cafe stop"],
+    ["8:00am","Drive to the airport","~20 minutes from the CBD"],
+    ["8:15am","Refuel the rental",""],
+    ["8:30am","Return the rental car","Allow time for inspection"],
+    ["—","Depart Hobart → Brisbane","Confirm your rebooked JQ756 time — safe travels!"]
+  ],
+  story:"Nine days, one full loop of the island plus the wild west coast — and with any luck, a phone full of wombats, snow, orange rocks and Southern Ocean sunsets. Safe flight home.",
+  eat:[], activities:[], night:[], insta:[]
+}
+];
+
+/* ---------------------------------------------------------
+   RENDER
+--------------------------------------------------------- */
+const nav = document.getElementById('navInner');
+const glance = document.getElementById('glanceGrid');
+const daysContainer = document.getElementById('daysContainer');
+
+nav.innerHTML = `<a href="#overview" data-nav="overview">Overview</a>` +
+  DAYS.map(d=>`<a href="#day${d.num}" data-nav="day${d.num}">D${d.num} · ${d.title}</a>`).join('') +
+  `<a href="#packing" data-nav="packing">Packing & budget</a>`;
+
+glance.innerHTML = DAYS.map(d=>`
+  <div class="glance-card">
+    <span class="region">${d.region}</span>
+    <div class="day-tag">${String(d.num).padStart(2,'0')}</div>
+    <div class="date">${d.date}</div>
+    <h4>${d.title}</h4>
+    <p>${d.drive.dist} · ${d.drive.time}</p>
+    <a href="#day${d.num}">View day →</a>
+  </div>
+`).join('');
+
+function ytThumb(id){ return `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }
+function ytWatch(id){ return `https://www.youtube.com/watch?v=${id}`; }
+function igLink(tag){ return `https://www.instagram.com/explore/tags/${tag}/`; }
+function mapEmbed(q){ return `https://maps.google.com/maps?q=${encodeURIComponent(q)}&t=&z=12&ie=UTF8&iwloc=&output=embed`; }
+function imgSearchLink(q){ return `https://www.google.com/search?q=${encodeURIComponent(q)}&tbm=isch`; }
+
+daysContainer.innerHTML = DAYS.map(d => `
+  <section class="day" id="day${d.num}">
+    <div class="wrap">
+      <div class="day-head">
+        <div class="day-num">${String(d.num).padStart(2,'0')}</div>
+        <div class="day-titles">
+          <div class="weekday">${d.weekday} · ${d.date}</div>
+          <h3>${d.title}</h3>
+          <span class="region-badge">${d.region}</span>
+        </div>
+      </div>
+
+      <div class="day-grid">
+        <div>
+          ${d.videos.length ? `
+          <div class="video-grid">
+            ${d.videos.map(v => `
+            <a class="video-card" href="${ytWatch(v[0])}" target="_blank" rel="noopener">
+              <img src="${ytThumb(v[0])}" alt="${v[1]}" loading="lazy">
+              ${v[2] ? '<span class="short-tag">SHORT</span>' : ''}
+              <span class="play-badge">
+                <svg viewBox="0 0 68 48"><path d="M66.5 7.7a8.4 8.4 0 0 0-5.9-6C55.8 0 34 0 34 0S12.2 0 7.4 1.7a8.4 8.4 0 0 0-5.9 6A87 87 0 0 0 0 24a87 87 0 0 0 1.5 16.3 8.4 8.4 0 0 0 5.9 6C12.2 48 34 48 34 48s21.8 0 26.6-1.7a8.4 8.4 0 0 0 5.9-6A87 87 0 0 0 68 24a87 87 0 0 0-1.5-16.3z" fill="#c1502e"/><path d="M27 34.5 45 24 27 13.5z" fill="#fff"/></svg>
+              </span>
+              <span class="cap">▶ ${v[1]}</span>
+            </a>`).join('')}
+          </div>
+          <p class="video-hint">Tap a thumbnail to watch on YouTube (opens in a new tab) — includes real Shorts, not just full-length videos.</p>
+          ` : `
+          <div style="border-radius:var(--radius);background:var(--slate);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;">
+            <span style="color:var(--ice);font-family:'Fraunces',serif;font-size:20px;">✈ Safe travels</span>
+          </div>`}
+
+          ${d.photoQuery ? `<a class="more-photos" href="${imgSearchLink(d.photoQuery)}" target="_blank" rel="noopener">📷 See real photos of ${d.title} →</a>` : ''}
+
+          <div class="story"><h4>The story</h4><p style="margin:0;">${d.story}</p></div>
+
+          ${d.night && d.night.length ? `
+          <div class="night-card">
+            <h4>🥃 Night cap</h4>
+            ${d.night.map(n=>`<div class="venue"><div><span class="vname">${n[0]}</span><span class="vnote">${n[1]}</span></div></div>`).join('')}
+          </div>` : ''}
+
+          ${d.timeline.length ? `
+          <details class="timeline-toggle">
+            <summary>Full day-by-day timeline</summary>
+            <ul class="timeline">
+              ${d.timeline.map(t=>`<li><div class="time">${t[0]}</div><div class="txt"><b>${t[1]}</b><span>${t[2]}</span></div></li>`).join('')}
+            </ul>
+          </details>` : ''}
+        </div>
+
+        <div>
+          <div class="drive-card">
+            <div class="row"><span class="label">Distance</span><span class="val">${d.drive.dist}</span></div>
+            <div class="row"><span class="label">Drive time</span><span class="val">${d.drive.time}</span></div>
+            <div class="row"><span class="label">Roads</span><span class="val">${d.drive.road}</span></div>
+            <div class="row"><span class="label">Route</span><span class="val">${d.drive.stops}</span></div>
+          </div>
+
+          <div class="map-frame">
+            <iframe src="${mapEmbed(d.mapQuery)}" loading="lazy"></iframe>
+            <div class="map-link"><span>${d.mapQuery}</span><a href="${d.mapLink}" target="_blank">Open in Maps →</a></div>
+          </div>
+
+          ${d.eat && d.eat.length ? `
+          <div class="section-title-sm">Eat</div>
+          <div class="cardset">${d.eat.map(e=>`<div class="mini-card"><span class="tag">🍽 Food</span><h5>${e[0]}</h5><p>${e[1]}</p></div>`).join('')}</div>` : ''}
+
+          ${d.activities && d.activities.length ? `
+          <div class="section-title-sm">Do & see</div>
+          <div class="cardset">${d.activities.map(e=>`<div class="mini-card"><span class="tag">✦ Activity</span><h5>${e[0]}</h5><p>${e[1]}</p></div>`).join('')}</div>` : ''}
+
+          ${d.insta && d.insta.length ? `
+          <div class="section-title-sm">📸 Best photo spots</div>
+          <div class="cardset">${d.insta.map(e=>`<div class="insta-card"><span class="tag">Photo spot</span><h5>${e[0]}</h5><p>${e[1]}</p><a href="${igLink(e[2])}" target="_blank">#${e[2]} on Instagram →</a></div>`).join('')}</div>` : ''}
+        </div>
+      </div>
+    </div>
+  </section>
+`).join('');
+
+/* Scroll progress bar */
+const progressBar = document.getElementById('progress');
+function updateProgress(){
+  const h = document.documentElement;
+  const scrolled = h.scrollTop;
+  const height = h.scrollHeight - h.clientHeight;
+  progressBar.style.width = height > 0 ? (scrolled/height*100) + '%' : '0%';
+}
+document.addEventListener('scroll', updateProgress, {passive:true});
+updateProgress();
+
+/* Active nav highlighting via IntersectionObserver */
+const navLinks = Array.from(document.querySelectorAll('[data-nav]'));
+const sections = navLinks.map(l => document.getElementById(l.getAttribute('data-nav'))).filter(Boolean);
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id = entry.target.id;
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('data-nav') === id));
+      const activeLink = document.querySelector(`[data-nav="${id}"]`);
+      if(activeLink) activeLink.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+    }
+  });
+}, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+sections.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
