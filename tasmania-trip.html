@@ -128,6 +128,11 @@ permalink: /tasmania/
 
   .hotel-tag{display:inline-flex; align-items:center; gap:6px; margin-top:14px; padding:10px 14px; background:linear-gradient(160deg,#fff,#F4FAF6); border:1px solid rgba(76,107,87,0.35); border-radius:12px; font-size:13px;}
   .hotel-tag b{color:var(--moss);}
+  .leave-card{margin-top:12px; padding:14px 16px; background:linear-gradient(160deg,#FFF8F0,#FBF1E6); border:1px solid rgba(193,80,46,0.25); border-radius:12px; font-size:13px;}
+  .leave-card .lb{font-family:'Fraunces',serif; font-size:18px; font-weight:600; color:var(--ember);}
+  .leave-card .covers{margin-top:8px; color:var(--slate-2); line-height:1.5;}
+  .leave-card .covers b{color:var(--ink);}
+  table.qr td.places{font-weight:500; white-space:normal; max-width:220px; font-size:12px; color:var(--slate-2); line-height:1.4;}
 
   .nav{position:sticky; top:3px; z-index:200; background:rgba(251,248,242,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
   .nav-inner{display:flex; gap:6px; overflow-x:auto; padding:10px 20px; max-width:1180px; margin:0 auto; scrollbar-width:none; -webkit-overflow-scrolling:touch;}
@@ -270,10 +275,10 @@ permalink: /tasmania/
       <div class="pill">📅 <b>12–19 July 2026</b></div>
       <div class="pill">✈️ JQ757 out · JQ756 back <b>Sun 19 Jul · 9:55am</b></div>
       <div class="pill">🧑‍🤝‍🧑 <b>4</b> travellers · 3 adults + 1 child</div>
-      <div class="pill">🚗 <b>~1,150 km</b> island loop · no west coast leg</div>
+      <div class="pill">🚗 <b>~1,150 km</b> · Hobart → East Coast → North → Cradle → Hobart</div>
     </div>
     <div class="alert">
-      <b>✈️ Flight locked in:</b> JQ756 departs Hobart <b>Sunday 19 Jul at 9:55am</b> — so Strahan is off the table (it's a 4–5 hour drive each way from everywhere else). Saturday 18 Jul becomes your drive from Cradle Mountain back to Hobart, with a stop in Sheffield and <b>Salamanca Market</b> on the way — it only runs on Saturdays, so you actually gain that back.
+      <b>✅ All 7 nights confirmed</b> — St Ives (×2) · Diamond Island Resort Bicheno · Launceston townhouse · Discovery Cradle Mountain · St Ives return. Total accommodation <b>AUD 1,935</b>. JQ756 Sun 19 Jul <b>9:55am</b> — leave St Ives by 6:45am that morning.
     </div>
   </div>
 </div>
@@ -289,65 +294,71 @@ permalink: /tasmania/
       <div class="booking-card confirmed">
         <span class="status">Confirmed</span>
         <div class="bname">St Ives Apartments</div>
-        <div class="bcity">Hobart · 2 nights</div>
+        <div class="bcity">Hobart · 2 nights · arrival</div>
         <div class="bdates">Check-in Sun 12 Jul · Check-out Tue 14 Jul</div>
         <div class="bprice">AUD 378 · Free cancellation</div>
-        <div class="bnote">Your Hobart base for arrival day and Port Arthur day trip.</div>
+        <div class="bnote">Days 1–2 · MONA, Port Arthur day trip base.</div>
+      </div>
+      <div class="booking-card confirmed">
+        <span class="status">Confirmed</span>
+        <div class="bname">Diamond Island Resort — Restaurant, Bar &amp; Penguin Show</div>
+        <div class="bcity">Bicheno · 1 night</div>
+        <div class="bdates">Check-in Tue 14 Jul · Check-out Wed 15 Jul</div>
+        <div class="bprice">AUD 350 · Cancellation policy applies</div>
+        <div class="bnote">After Freycinet · on-site penguin show — perfect for Tue evening.</div>
       </div>
       <div class="booking-card confirmed">
         <span class="status">Confirmed</span>
         <div class="bname">Modern 3 Bedroom Townhouse — 4 mins to CBD</div>
         <div class="bcity">Launceston · 2 nights</div>
         <div class="bdates">Check-in Wed 15 Jul · Check-out Fri 17 Jul</div>
-        <div class="bprice">AUD 558 · Free cancellation</div>
-        <div class="bnote">Parking available · Perfect for Ben Lomond ski day + Bay of Fires leg.</div>
+        <div class="bprice">AUD 558 · Free cancellation · Parking</div>
+        <div class="bnote">Days 4–5 · Bay of Fires leg + Ben Lomond ski day.</div>
       </div>
-      <div class="booking-card">
-        <div class="bname">Bicheno / Coles Bay</div>
-        <div class="bcity">East Coast · 1 night</div>
-        <div class="bdates">Tue 14 Jul → Wed 15 Jul</div>
-        <div class="bnote">Still to book — penguin tour evening optional.</div>
+      <div class="booking-card confirmed">
+        <span class="status">Confirmed</span>
+        <div class="bname">Discovery Resorts — Cradle Mountain</div>
+        <div class="bcity">Cradle Mountain · 1 night</div>
+        <div class="bdates">Check-in Fri 17 Jul · Check-out Sat 18 Jul</div>
+        <div class="bprice">AUD 420 · Free cancellation</div>
+        <div class="bnote">Day 6 · Dove Lake, wombats &amp; Devils at Cradle.</div>
       </div>
-      <div class="booking-card">
-        <div class="bname">Cradle Mountain</div>
-        <div class="bcity">Central Highlands · 1 night</div>
-        <div class="bdates">Fri 17 Jul → Sat 18 Jul</div>
-        <div class="bnote">Still to book — Discovery Parks or Peppers Lodge.</div>
-      </div>
-      <div class="booking-card">
-        <div class="bname">Hobart return night</div>
-        <div class="bcity">Hobart · 1 night</div>
-        <div class="bdates">Sat 18 Jul → Sun 19 Jul</div>
-        <div class="bnote">Still to book — near airport or CBD for early Sunday flight.</div>
+      <div class="booking-card confirmed">
+        <span class="status">Confirmed</span>
+        <div class="bname">St Ives Apartments</div>
+        <div class="bcity">Hobart · 1 night · return</div>
+        <div class="bdates">Check-in Sat 18 Jul · Check-out Sun 19 Jul</div>
+        <div class="bprice">AUD 229 · Free cancellation · Parking</div>
+        <div class="bnote">Day 7 · after Salamanca Market · early checkout for JQ756.</div>
       </div>
     </div>
 
     <div class="qr-grid">
       <div class="qr-card">
-        <h3>🏨 Where to book — nights per place</h3>
+        <h3>🏨 Confirmed accommodation — 7 nights · AUD 1,935 total</h3>
         <table class="qr">
-          <tr><th>Stay</th><th>Nights</th><th>Check&#8209;in</th><th>Check&#8209;out</th></tr>
-          <tr><td>St Ives Apartments <span class="qr-badge">✓ booked</span></td><td>2</td><td class="muted">Sun 12 Jul</td><td class="muted">Tue 14 Jul</td></tr>
-          <tr><td>Bicheno / Coles Bay</td><td>1</td><td class="muted">Tue 14 Jul</td><td class="muted">Wed 15 Jul</td></tr>
-          <tr><td>Modern 3BR Townhouse <span class="qr-badge">✓ booked</span></td><td>2</td><td class="muted">Wed 15 Jul</td><td class="muted">Fri 17 Jul</td></tr>
-          <tr><td>Cradle Mountain</td><td>1</td><td class="muted">Fri 17 Jul</td><td class="muted">Sat 18 Jul</td></tr>
-          <tr><td>Hobart <span class="qr-badge">return</span></td><td>1</td><td class="muted">Sat 18 Jul</td><td class="muted">Sun 19 Jul</td></tr>
-          <tr class="total"><td>Total</td><td>7 nights</td><td colspan="2"></td></tr>
+          <tr><th>Stay</th><th>Nights</th><th>Check&#8209;in</th><th>Check&#8209;out</th><th>Price</th></tr>
+          <tr><td>St Ives Apartments <span class="qr-badge">✓</span></td><td>2</td><td class="muted">Sun 12 Jul</td><td class="muted">Tue 14 Jul</td><td>AUD 378</td></tr>
+          <tr><td>Diamond Island Resort <span class="qr-badge">✓</span></td><td>1</td><td class="muted">Tue 14 Jul</td><td class="muted">Wed 15 Jul</td><td>AUD 350</td></tr>
+          <tr><td>Modern 3BR Townhouse <span class="qr-badge">✓</span></td><td>2</td><td class="muted">Wed 15 Jul</td><td class="muted">Fri 17 Jul</td><td>AUD 558</td></tr>
+          <tr><td>Discovery Cradle Mountain <span class="qr-badge">✓</span></td><td>1</td><td class="muted">Fri 17 Jul</td><td class="muted">Sat 18 Jul</td><td>AUD 420</td></tr>
+          <tr><td>St Ives Apartments <span class="qr-badge">✓</span></td><td>1</td><td class="muted">Sat 18 Jul</td><td class="muted">Sun 19 Jul</td><td>AUD 229</td></tr>
+          <tr class="total"><td>Total</td><td>7 nights</td><td colspan="2"></td><td>AUD 1,935</td></tr>
         </table>
       </div>
 
       <div class="qr-card">
-        <h3>⏰ Leave-by schedule — manage the drive time</h3>
+        <h3>⏰ Leave the hotel by — &amp; what to cover each day</h3>
         <table class="qr">
-          <tr><th>Day</th><th>From</th><th>Leave by</th><th>To</th><th>Arrive</th></tr>
-          <tr><td>D1 Sun 12</td><td class="muted">Airport</td><td>9:10am land</td><td>Hobart</td><td class="muted">11am</td></tr>
-          <tr><td>D2 Mon 13</td><td class="muted">Hobart</td><td>8:30am</td><td>Port Arthur (day trip)</td><td class="muted">back 6:30pm</td></tr>
-          <tr><td>D3 Tue 14</td><td class="muted">Hobart</td><td>8:00am</td><td>Bicheno</td><td class="muted">~5:00pm</td></tr>
-          <tr><td>D4 Wed 15</td><td class="muted">Bicheno</td><td>8:30am</td><td>Launceston</td><td class="muted">~2:30pm</td></tr>
-          <tr><td>D5 Thu 16</td><td class="muted">Launceston</td><td>7:00am</td><td>Ben Lomond (day trip)</td><td class="muted">back 5:30pm</td></tr>
-          <tr><td>D6 Fri 17</td><td class="muted">Launceston</td><td>8:00am</td><td>Cradle Mountain</td><td class="muted">~11:30am</td></tr>
-          <tr><td>D7 Sat 18</td><td class="muted">Cradle Mountain</td><td>8:00am</td><td>Hobart</td><td class="muted">~3:30pm</td></tr>
-          <tr><td>D8 Sun 19</td><td class="muted">Hobart</td><td>7:00am</td><td>Airport · JQ756</td><td class="muted">9:55am fly</td></tr>
+          <tr><th>Day</th><th>Leave hotel by</th><th>From → To</th><th>Places to cover today</th></tr>
+          <tr><td>D1 Sun 12</td><td>—</td><td class="muted">Airport → St Ives</td><td class="places">Car pickup · check-in St Ives · Salamanca lunch · MONA · Constitution Dock</td></tr>
+          <tr><td>D2 Mon 13</td><td><b>8:30am</b></td><td class="muted">St Ives → Port Arthur → St Ives</td><td class="places">Richmond Bridge · Port Arthur site · harbour cruise · back to Hobart</td></tr>
+          <tr><td>D3 Tue 14</td><td><b>8:00am</b></td><td class="muted">St Ives → Diamond Island</td><td class="places">Swansea · Wineglass Bay lookout · Honeymoon Bay · Cape Tourville · penguin show (resort)</td></tr>
+          <tr><td>D4 Wed 15</td><td><b>8:30am</b></td><td class="muted">Diamond Island → Townhouse</td><td class="places">Bay of Fires · St Helens · check-in Launceston · Cataract Gorge chairlift</td></tr>
+          <tr><td>D5 Thu 16</td><td><b>7:00am</b></td><td class="muted">Townhouse → Ben Lomond → Townhouse</td><td class="places">Jacobs Ladder · ski/board hire · full day on snow · back to Launceston</td></tr>
+          <tr><td>D6 Fri 17</td><td><b>8:00am</b></td><td class="muted">Townhouse → Discovery Cradle</td><td class="places">Deloraine · Ashgrove Cheese · Sheffield · Dove Lake · Ronny Creek wombats · Devils at Cradle</td></tr>
+          <tr><td>D7 Sat 18</td><td><b>8:00am</b></td><td class="muted">Discovery → St Ives</td><td class="places">Sheffield · Ross (optional) · Salamanca Market (by 2:30pm) · check-in St Ives · farewell dinner</td></tr>
+          <tr><td>D8 Sun 19</td><td><b>6:45am</b></td><td class="muted">St Ives → Airport</td><td class="places">Checkout · refuel · return car · JQ756 departs 9:55am</td></tr>
         </table>
       </div>
     </div>
@@ -399,19 +410,19 @@ permalink: /tasmania/
       </div>
       <div class="info-card">
         <h4>Where you'll sleep</h4>
-        <p style="margin-top:0;"><b>Confirmed:</b> St Ives Apartments (Hobart) · Modern 3BR Townhouse (Launceston). Still to book: Bicheno, Cradle Mountain, Hobart return night (Sat 18).</p>
+        <p style="margin-top:0;"><b>All 7 nights confirmed</b> — total accommodation AUD 1,935 (see cards above).</p>
         <ul>
           <li><b>✓ St Ives Apartments</b> — Hobart, 12–14 Jul (AUD 378)</li>
+          <li><b>✓ Diamond Island Resort</b> — Bicheno, 14–15 Jul (AUD 350) + penguin show</li>
           <li><b>✓ Modern 3BR Townhouse</b> — Launceston, 15–17 Jul (AUD 558)</li>
-          <li>Beachfront Bicheno / Freycinet Lodge</li>
-          <li>Discovery Parks / Peppers Cradle Mountain Lodge</li>
-          <li>Hobart hotel — Sat 18 Jul (near airport or CBD)</li>
+          <li><b>✓ Discovery Cradle Mountain</b> — 17–18 Jul (AUD 420)</li>
+          <li><b>✓ St Ives Apartments</b> — Hobart return, 18–19 Jul (AUD 229)</li>
         </ul>
       </div>
       <div class="info-card">
         <h4>Budget, all-in</h4>
         <div class="big">~$7,200–8,800</div>
-        <p>Excluding flights. Original 8-day / 7-night estimate — no Strahan leg, no extra hotel night, no Gordon River Cruise.</p>
+        <p>Excluding flights. Accommodation AUD 1,935 already booked — add car, fuel, food, park passes &amp; ski hire.</p>
       </div>
     </div>
   </div>
@@ -446,12 +457,13 @@ permalink: /tasmania/
     <div class="link-grid">
       <a href="https://www.vroomvroomvroom.com.au/locations/hobart-airport/" target="_blank">Compare car rentals ↗</a>
       <a href="https://www.booking.com/" target="_blank">St Ives Apartments ↗</a>
+      <a href="https://www.diamondislandresort.com.au/" target="_blank">Diamond Island Resort ↗</a>
       <a href="https://www.booking.com/" target="_blank">Launceston townhouse ↗</a>
-      <a href="https://www.discoveryparks.com.au/tasmania/cradle-mountain" target="_blank">Cradle Mountain stay ↗</a>
+      <a href="https://www.discoveryparks.com.au/tasmania/cradle-mountain" target="_blank">Discovery Cradle Mountain ↗</a>
       <a href="https://portarthur.org.au/" target="_blank">Port Arthur tickets ↗</a>
       <a href="https://mona.net.au/" target="_blank">MONA entry ↗</a>
       <a href="https://www.skiresort.info/ski-resort/ben-lomond/" target="_blank">Ben Lomond snow report ↗</a>
-      <a href="https://www.bichenopenguintours.com.au/" target="_blank">Bicheno penguins ↗</a>
+      <a href="https://www.diamondislandresort.com.au/penguin-show/" target="_blank">Diamond Island penguin show ↗</a>
       <a href="https://devilsatcradle.com/" target="_blank">Devils at Cradle ↗</a>
       <a href="https://www.salamancamarket.com.au/" target="_blank">Salamanca Market ↗</a>
       <a href="http://www.bom.gov.au/tas/" target="_blank">Tasmania weather ↗</a>
@@ -472,7 +484,9 @@ permalink: /tasmania/
 const DAYS = [
 {
   num:1, date:"Sun 12 Jul", weekday:"Day one", title:"Welcome to Hobart", region:"Hobart",
-  hotel:"St Ives Apartments · Confirmed · AUD 378",
+  hotel:"St Ives Apartments · Confirmed · AUD 378 · check-in today",
+  leaveBy:null,
+  covers:"Hobart Airport · car pickup · St Ives check-in · Salamanca Place · MONA · Constitution Dock",
   dayMap:"Hobart+Airport+to:St+Ives+Apartments+Hobart+to:MONA+Museum+Hobart+to:Salamanca+Place+Hobart+to:Constitution+Dock+Hobart",
   images:[
     ["https://img.youtube.com/vi/LNErDYzArr0/hqdefault.jpg","MONA, Berriedale"],
@@ -501,7 +515,9 @@ const DAYS = [
 },
 {
   num:2, date:"Mon 13 Jul", weekday:"Day two", title:"Port Arthur & Richmond", region:"Tasman Peninsula",
-  hotel:"St Ives Apartments · night 2 of 2",
+  hotel:"St Ives Apartments · night 2 of 2 · same booking",
+  leaveBy:"8:30am from St Ives",
+  covers:"Richmond Bridge · Port Arthur Historic Site · harbour cruise · return to St Ives for dinner",
   dayMap:"St+Ives+Apartments+Hobart+to:Richmond+Bridge+Tasmania+to:Port+Arthur+Historic+Site+to:St+Ives+Apartments+Hobart",
   images:[
     ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PortArthurPenitentiary.jpg/960px-PortArthurPenitentiary.jpg","Port Arthur Penitentiary"],
@@ -514,13 +530,13 @@ const DAYS = [
   mapQuery:"Port Arthur Historic Site", mapLink:"https://maps.google.com/?cid=289296137135721216",
   drive:{dist:"~200 km round trip", time:"~2.5 hrs", road:"Arthur Highway (A9) via Tasman Hwy", stops:"Hobart → Richmond → Port Arthur → Hobart"},
   timeline:[
-    ["8:30am","Depart Hobart","Via Tasman Highway, ~1.5 hrs"],
+    ["8:30am","Leave St Ives Apartments","Pack snacks — 200 km round trip today"],
     ["10:00am","Richmond Village","Australia's oldest stone bridge (1823), bakery, quaint shops"],
     ["11:00am","Arrive Port Arthur","UNESCO World Heritage convict site, 30+ historic buildings"],
     ["12:30pm","Lunch","1830 Restaurant & Bar, or a picnic on the grounds"],
     ["3:00pm","Harbour cruise","20 min, included in entry — passes the Isle of the Dead"],
-    ["4:30pm","Return to Hobart",""],
-    ["6:30pm","Dinner","Frank (Italian) or Ball & Chain Grill (steakhouse)"]
+    ["4:30pm","Drive back to Hobart","~1.5 hrs"],
+    ["6:30pm","Dinner near St Ives","Frank (Italian) or Ball & Chain Grill (steakhouse)"]
   ],
   story:"Port Arthur ran as a penal settlement from the 1830s, built to be inescapable — a peninsula guarded by dog lines. More than 1,000 convicts, soldiers and settlers are buried on the tiny Isle of the Dead just offshore. Richmond Bridge, the quick photo stop on the way, is the oldest standing bridge in Australia — built by convict gangs in 1823 and still carrying traffic 200 years later.",
   eat:[["1830 Restaurant & Bar","On-site at Port Arthur, seasonal Tasmanian produce"],["Richmond Bakery","Pies and pastries in the village"],["Frank / Ball & Chain Grill","Dinner back in Hobart"]],
@@ -530,8 +546,10 @@ const DAYS = [
 },
 {
   num:3, date:"Tue 14 Jul", weekday:"Day three", title:"Freycinet & Wineglass Bay", region:"East Coast",
-  hotel:"Bicheno / Coles Bay · to book",
-  dayMap:"St+Ives+Apartments+Hobart+to:Swansea+Tasmania+to:Wineglass+Bay+Lookout+to:Honeymoon+Bay+Freycinet+to:Bicheno+Tasmania",
+  hotel:"Diamond Island Resort · Confirmed · AUD 350 · penguin show on-site",
+  leaveBy:"8:00am from St Ives (checkout day)",
+  covers:"Swansea · Freycinet NP · Wineglass Bay lookout · Honeymoon Bay · Cape Tourville · Diamond Island check-in · evening penguin show",
+  dayMap:"St+Ives+Apartments+Hobart+to:Swansea+Tasmania+to:Wineglass+Bay+Lookout+to:Honeymoon+Bay+Freycinet+to:Diamond+Island+Resort+Bicheno",
   images:[
     ["https://commons.wikimedia.org/wiki/Special:FilePath/Wineglass%20Bay.jpg?width=800","Wineglass Bay lookout"],
     ["https://img.youtube.com/vi/t-hWT60aMTE/hqdefault.jpg","Freycinet from above"],
@@ -541,27 +559,29 @@ const DAYS = [
   reels:[["https://www.instagram.com/reel/DV-WnKvAbTD/","Freycinet & Wineglass Bay road trip"]],
   photoQuery:"Wineglass Bay Freycinet Honeymoon Bay Tasmania",
   mapQuery:"Wineglass Bay Lookout", mapLink:"https://maps.google.com/?cid=2959697588719571316",
-  drive:{dist:"~230 km", time:"~3.5 hrs", road:"Tasman Highway via Swansea", stops:"Hobart → Swansea → Freycinet → Coles Bay → Bicheno"},
+  drive:{dist:"~230 km", time:"~3.5 hrs driving", road:"Tasman Highway via Swansea", stops:"St Ives checkout → Swansea → Freycinet → Diamond Island Resort, Bicheno"},
   timeline:[
-    ["8:00am","Depart for Freycinet","Via Tasman Highway"],
+    ["8:00am","Checkout St Ives · depart","Load car — checkout usually 10am but leave early for Freycinet"],
     ["10:30am","Swansea","Bakery stop, seaside town on Great Oyster Bay"],
     ["11:00am","Freycinet park pass","At the visitor centre, ~$31/family"],
     ["11:30am","Wineglass Bay Lookout walk","3 km return, 1–1.5 hrs, moderate grade"],
     ["1:30pm","Honeymoon Bay","10-minute easy walk, calm water, great for families"],
     ["3:30pm","Cape Tourville Lighthouse","600m boardwalk, wheelchair-friendly"],
-    ["5:00pm","Check in, Bicheno",""],
-    ["7:30pm","Bicheno Penguin Tour (optional)","Little penguins return to shore at dusk — book ahead"]
+    ["5:00pm","Check in — Diamond Island Resort","Restaurant & Bar on-site"],
+    ["7:00pm","Penguin Show (resort)","Included with your booking — little penguins at dusk"]
   ],
   story:"Wineglass Bay's dreamy name has a dark backstory: whalers worked this coast in the 1820s and 30s, and the bay's water is said to have turned wine-red during the harpooning season. The Hazards — the pink granite range framing the classic lookout photo — are Devonian-era granite, and the peninsula is named after French naval officer Louis de Freycinet, who mapped this coast in 1802.",
   eat:[["Swansea bakery","Pies and coffee on the drive up"],["Freycinet Marine Farm","Oysters, straight from the bay"],["Pasini's / The Farm Shed, Bicheno","Dinner options"]],
-  activities:[["Wineglass Bay Lookout walk","Moderate, kid-friendly with supervision"],["Honeymoon Bay","Easy, calm-water beach"],["Cape Tourville boardwalk","Wheelchair/pram friendly, 20 min"],["Bicheno penguin tour","Evening, ~$50/adult, book ahead"]],
-  night:[["Waubs Harbour Whisky","Bicheno — small ocean-side distillery and tasting room; genuinely worth timing before dinner."],["The Farm Shed East Coast Wine Centre","Curated wall of the region's best wine, whisky and gin if Waubs is closed."]],
+  activities:[["Wineglass Bay Lookout walk","Moderate, kid-friendly with supervision"],["Honeymoon Bay","Easy, calm-water beach"],["Cape Tourville boardwalk","Wheelchair/pram friendly, 20 min"],["Diamond Island Penguin Show","On-site at your resort — evening"]],
+  night:[["Diamond Island Resort restaurant","Dine on-site after the penguin show — you've got a long drive tomorrow so take it easy."],["Waubs Harbour Whisky","5 min in Bicheno if you want a nightcap before the show."]],
   insta:[["The classic Wineglass Bay Lookout shot","Arrive before 10am for empty frames.","wineglassbay"],["Cape Tourville boardwalk sunset","Lighthouse silhouette against the coastline, post-4pm in July.","capetourville"]]
 },
 {
   num:4, date:"Wed 15 Jul", weekday:"Day four", title:"Bay of Fires to Launceston", region:"North Coast",
   hotel:"Modern 3BR Townhouse · Confirmed · AUD 558 · night 1 of 2",
-  dayMap:"Bicheno+Tasmania+to:Bay+of+Fires+Conservation+Area+to:St+Helens+Tasmania+to:Modern+3+Bedroom+Townhouse+Launceston",
+  leaveBy:"8:30am from Diamond Island Resort",
+  covers:"Bay of Fires · St Helens · Launceston townhouse check-in · Cataract Gorge chairlift",
+  dayMap:"Diamond+Island+Resort+Bicheno+to:Bay+of+Fires+Conservation+Area+to:St+Helens+Tasmania+to:Modern+3+Bedroom+Townhouse+Launceston",
   images:[
     ["https://img.youtube.com/vi/D3-LS-UR_iw/hqdefault.jpg","Bay of Fires aerial"],
     ["https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80","East coast morning light"],
@@ -571,26 +591,28 @@ const DAYS = [
   reels:[["https://www.instagram.com/reel/DZ2DxuZvEwo/","Binalong Bay & Bay of Fires dawn swim"]],
   photoQuery:"Bay of Fires Cataract Gorge Launceston Tasmania",
   mapQuery:"Bay of Fires Conservation Area", mapLink:"https://maps.google.com/?cid=1081929675368947024",
-  drive:{dist:"~260 km", time:"~4 hrs", road:"Tasman Hwy via St Helens, inland via Scottsdale", stops:"Bicheno → Bay of Fires → St Helens → Launceston"},
+  drive:{dist:"~260 km", time:"~4 hrs", road:"Tasman Hwy via St Helens, inland via Scottsdale", stops:"Diamond Island checkout → Bay of Fires → St Helens → Launceston townhouse"},
   timeline:[
-    ["8:30am","Drive to Bay of Fires","~45 min north via St Helens"],
+    ["8:30am","Checkout Diamond Island · depart","~45 min to Bay of Fires"],
     ["9:30am","Bay of Fires","Orange lichen-covered granite, white sand, short walks"],
     ["11:00am","St Helens","Coffee stop, charming coastal town"],
     ["12:00pm","Continue to Launceston","Inland via Scottsdale, ~2.5 hrs"],
-    ["2:30pm","Check in","Modern 3 Bedroom Townhouse — 4 mins to CBD · confirmed"],
+    ["2:30pm","Check in — Modern 3BR Townhouse","4 mins to CBD · parking confirmed"],
     ["3:00pm","Cataract Gorge Reserve","12 min drive — chairlift, peacocks, dolerite cliffs"],
-    ["5:00pm","Coffee, Launceston CBD",""],
-    ["7:00pm","Dinner","Grain of the Silos, on-site at the hotel"]
+    ["5:00pm","Launceston CBD","Coffee or Anvers Chocolates"],
+    ["7:00pm","Dinner","Stillwater or Mudbar — book ahead"]
   ],
   story:"Despite the name, Bay of Fires isn't about the burnt-orange lichen on the boulders — a British navigator named it in 1773 after spotting Aboriginal fires burning along the shore, country that's still Palawa land. In Launceston, Cataract Gorge's chairlift holds the world record for the longest single chairlift span (308m), strung across a natural river basin first opened to visitors in 1972.",
-  eat:[["St Helens cafes","Coffee stop mid-drive"],["Grain of the Silos","Hotel restaurant, local Tasmanian produce"],["Anvers Chocolates","Handmade chocolate in Launceston"]],
+  eat:[["St Helens cafes","Coffee stop mid-drive"],["Stillwater / Mudbar","Launceston dinner — book ahead"],["Anvers Chocolates","Handmade chocolate in Launceston"]],
   activities:[["Bay of Fires beach walks","Multiple short trails, very windy in winter"],["Cataract Gorge chairlift","World's longest single-span chairlift, ~$20/adult"]],
   night:[["The Grumpy Piper","Paterson St — 450+ whiskies and, unusually, a highland bagpipe museum on the walls."],["Launceston Distillery","Hangar 17, near the airport — working distillery inside a 1940s aviation hangar, tastings till late afternoon, worth a detour if you arrive early."]],
   insta:[["Orange boulders at Bay of Fires","Get low with a wide lens — the lichen glows hardest in soft, early light.","bayoffires"],["Mid-air on the Gorge chairlift","Shoot straight down at the basin — best light is late afternoon.","cataractgorge"]]
 },
 {
   num:5, date:"Thu 16 Jul", weekday:"Day five ⭐", title:"Ben Lomond ski day", region:"Northeast",
-  hotel:"Modern 3BR Townhouse · night 2 of 2",
+  hotel:"Modern 3BR Townhouse · night 2 of 2 · same booking",
+  leaveBy:"7:00am from townhouse (early — buy/hire snow chains in Launceston first)",
+  covers:"Jacobs Ladder · Ben Lomond ski village · full day skiing · return to townhouse",
   dayMap:"Launceston+Tasmania+to:Ben+Lomond+Ski+Village+to:Launceston+Tasmania",
   images:[
     ["https://img.youtube.com/vi/OJguCDuazqk/hqdefault.jpg","Ben Lomond family ski day"],
@@ -603,13 +625,14 @@ const DAYS = [
   mapQuery:"Ben Lomond Ski Village", mapLink:"https://maps.google.com/?cid=1081929675368947936",
   drive:{dist:"~120 km", time:"~2.5 hrs (mountain roads)", road:"Ben Lomond Rd via Jacobs Ladder switchbacks", stops:"Launceston → Jacobs Ladder → Ben Lomond Village → Launceston"},
   timeline:[
-    ["7:00am","Depart Launceston","~60 km / 1 hr"],
+    ["7:00am","Leave townhouse","Pick up snow chains in Launceston if not done yesterday"],
     ["8:00am","Jacobs Ladder","Six hairpin switchbacks — fit snow chains before you start climbing"],
     ["8:30am","Arrive Ben Lomond Village","Elevation 1,460m, Tasmania's only commercial ski resort"],
     ["9:00am","Ski/board hire, lessons","Especially useful for the first-timer in the group"],
     ["9:30am–4:00pm","Skiing, snowboarding, tobogganing","6 km of runs — 33% beginner, 50% intermediate, 17% advanced"],
     ["12:30pm","Lunch, Creek Inn","Hot food, hot chocolate, warm shelter"],
     ["4:00pm","Descend Jacobs Ladder","Remove chains, take it slow"],
+    ["5:30pm","Back at townhouse","Thaw out, hot shower"],
     ["7:00pm","Dinner, Launceston","Mudbar or Stillwater"]
   ],
   story:"Ben Lomond is Tasmania's only commercial ski field and its largest single alpine area — home to five of the state's ten highest peaks. Jacobs Ladder, the six-hairpin gravel climb to the plateau, is Tasmania's highest road, and snow chains are a legal requirement on it from June through September.",
@@ -620,8 +643,10 @@ const DAYS = [
 },
 {
   num:6, date:"Fri 17 Jul", weekday:"Day six", title:"Cradle Mountain — wilderness & wombats", region:"Central Highlands",
-  hotel:"Cradle Mountain · to book",
-  dayMap:"Launceston+Tasmania+to:Sheffield+Tasmania+to:Cradle+Mountain+Visitor+Centre+to:Dove+Lake+Cradle+Mountain",
+  hotel:"Discovery Resorts — Cradle Mountain · Confirmed · AUD 420",
+  leaveBy:"8:00am from townhouse (checkout day)",
+  covers:"Deloraine · Ashgrove Cheese · Sheffield murals · Dove Lake · Ronny Creek wombats · Devils at Cradle",
+  dayMap:"Launceston+Tasmania+to:Sheffield+Tasmania+to:Discovery+Resorts+Cradle+Mountain+to:Dove+Lake+Cradle+Mountain",
   images:[
     ["https://img.youtube.com/vi/VYrv_UvQtEk/hqdefault.jpg","Dove Lake & Cradle Mountain"],
     ["https://img.youtube.com/vi/ojYFW1cE7L8/hqdefault.jpg","Wild wombat at Ronny Creek"],
@@ -631,29 +656,31 @@ const DAYS = [
   reels:[["https://www.instagram.com/reel/C94QHXtv124/","Cradle Mountain winter — wombats & boardwalks"],["https://www.instagram.com/reel/DZBr7mWpOQ5/","Kayaking beneath Cradle Mountain"]],
   photoQuery:"Dove Lake Cradle Mountain wombat Ronny Creek",
   mapQuery:"Dove Lake Cradle Mountain", mapLink:"https://maps.google.com/?cid=3027484711832983472",
-  drive:{dist:"~220 km", time:"~3.5 hrs", road:"Bass Hwy via Deloraine & Sheffield", stops:"Launceston → Deloraine → Ashgrove Cheese → Sheffield → Cradle Mountain"},
+  drive:{dist:"~220 km", time:"~3.5 hrs", road:"Bass Hwy via Deloraine & Sheffield", stops:"Townhouse checkout → Deloraine → Ashgrove Cheese → Sheffield → Discovery Cradle Mountain"},
   timeline:[
-    ["8:00am","Depart for Cradle Mountain","Via Deloraine, ~2.5 hrs"],
+    ["8:00am","Checkout townhouse · depart","Fill up in Launceston — limited fuel near Cradle"],
     ["10:00am","Deloraine","Coffee at a local cafe"],
-    ["10:20am","Ashgrove Cheese Farm","Tastings of award-winning Tasmanian cheeses, just outside Deloraine"],
+    ["10:20am","Ashgrove Cheese Farm","Tastings of award-winning Tasmanian cheeses"],
     ["10:50am","Sheffield","'Town of Murals' — quick photo stop"],
-    ["11:30am","Arrive, check in","Discovery Parks, leave the bags"],
+    ["11:30am","Check in — Discovery Resorts","Drop bags, park passes at visitor centre"],
     ["12:00pm","Shuttle to Dove Lake","Free shuttle from the visitor centre, winter schedule"],
     ["12:30pm","Dove Lake Circuit","6 km loop, ~2 hrs, flat and family-friendly"],
     ["3:00pm","Ronny Creek boardwalk","THE spot for wild wombats"],
     ["4:00pm","Devils at Cradle","Tasmanian Devil sanctuary, feeding time, ~$35/adult"],
-    ["6:30pm","Dinner","Hellyers Restaurant or the tavern at Peppers Lodge"]
+    ["6:30pm","Dinner","Hellyers Restaurant at Discovery or Peppers Lodge tavern"]
   ],
   story:"Dove Lake sits directly beneath Cradle Mountain's dolerite spires, carved by glaciers during the last ice age. Ronny Creek, the wombat-viewing boardwalk, is also the northern trailhead of the Overland Track. Sheffield reinvented itself as an open-air gallery decades ago, and now has more than 60 murals across its walls.",
   eat:[["Ashgrove Cheese Farm","Tastings + café, near Deloraine"],["Hellyers Restaurant","Discovery Parks on-site dining, dubbed the highest restaurant in Tasmania"],["Peppers Lodge tavern","Alternative dinner spot"]],
   activities:[["Dove Lake Circuit walk","6 km, flat, best family walk in the park"],["Ronny Creek wombat spotting","Free, best late afternoon"],["Devils at Cradle","Tasmanian Devil conservation sanctuary"],["Stargazing","Clear winter nights here are exceptional"]],
-  night:[["Hellyers Restaurant","Discovery Parks Cradle Mountain — whisky list and mountain views, worth the name."],["Tavern Bar & Bistro, Cradle Mountain Lodge","Log fire, pool table, wide drinks selection — casual and warm after a cold day."]],
+  night:[["Hellyers Restaurant","Discovery Resorts — whisky list and mountain views."],["Tavern Bar & Bistro, Cradle Mountain Lodge","Log fire, casual and warm after a cold day."]],
   insta:[["The boat shed at Dove Lake","The single most photographed shot in Tasmania — best at sunrise.","dovelake"],["Wombat close-up, Ronny Creek","Get low, stay still — they'll often walk right up to the boardwalk.","cradlemountain"]]
 },
 {
   num:7, date:"Sat 18 Jul", weekday:"Day seven", title:"Cradle Mountain to Hobart", region:"Central → South",
-  hotel:"Hobart return night · to book · Sat 18 Jul",
-  dayMap:"Cradle+Mountain+Visitor+Centre+to:Sheffield+Tasmania+to:Salamanca+Market+Hobart+to:Hobart+CBD",
+  hotel:"St Ives Apartments · Confirmed · AUD 229 · return booking",
+  leaveBy:"8:00am from Discovery Cradle Mountain (checkout — long drive)",
+  covers:"Sheffield · Ross Village (optional) · Salamanca Market (Sat 8:30am–3pm) · St Ives check-in · farewell dinner",
+  dayMap:"Discovery+Resorts+Cradle+Mountain+to:Sheffield+Tasmania+to:Salamanca+Market+Hobart+to:St+Ives+Apartments+Hobart",
   images:[
     ["https://img.youtube.com/vi/iiL_nSC1Iao/hqdefault.jpg","Sheffield mural town"],
     ["https://img.youtube.com/vi/KkEcel4qteo/hqdefault.jpg","Salamanca Market — it's Saturday!"],
@@ -663,14 +690,14 @@ const DAYS = [
   reels:[["https://www.instagram.com/reel/DZ2DxuZvEwo/","Salamanca & Hobart winter guide"]],
   photoQuery:"Salamanca Market Sheffield Tasmania",
   mapQuery:"Salamanca Market Hobart", mapLink:"https://maps.google.com/?q=Salamanca+Market+Hobart",
-  drive:{dist:"~320 km", time:"~4.5 hrs", road:"C136 via Sheffield, then Midland Hwy to Hobart", stops:"Cradle Mountain → Sheffield → Salamanca Market → Hobart hotel"},
+  drive:{dist:"~320 km", time:"~4.5 hrs driving", road:"C136 via Sheffield, then Midland Hwy to Hobart", stops:"Discovery checkout → Sheffield → Salamanca Market → St Ives Apartments"},
   timeline:[
-    ["8:00am","Checkout, Cradle Mountain","Early start — long drive ahead"],
-    ["9:30am","Sheffield","Town of Murals — quick photo stop, coffee"],
-    ["12:30pm","Lunch en route","Deloraine, Campbell Town or Ross — stretch the legs"],
-    ["2:30pm","Salamanca Market","Saturday market 8:30am–3pm — stalls, food, crafts on the waterfront"],
-    ["4:00pm","Check in, Hobart hotel","Drop bags, freshen up"],
-    ["5:30pm","Constitution Dock / waterfront walk","Easy stroll if energy allows"],
+    ["8:00am","Checkout Discovery · depart","Early start — aim for Salamanca before 3pm close"],
+    ["9:30am","Sheffield","Town of Murals — coffee & photos"],
+    ["11:30am","Ross Village (optional)","Historic bridge & famous scallop pie bakery"],
+    ["1:00pm","Salamanca Market","Saturday 8:30am–3pm — lunch at the stalls, browse crafts & produce"],
+    ["3:30pm","Market closes · drive to St Ives","Check in, drop bags"],
+    ["5:30pm","Constitution Dock walk","Easy waterfront stroll if energy allows"],
     ["7:00pm","Farewell dinner","Aloft (harbour views) or Drunken Admiral (family seafood)"]
   ],
   story:"Sheffield's 60+ murals turned a struggling mining town into an open-air gallery — worth 20 minutes even on a transit day. Salamanca Market has run every Saturday since 1972 and is Tasmania's most visited single attraction: expect fresh produce, hot scallop pies, leather goods and buskers among the 1830s sandstone warehouses. With your Sunday-morning flight, Saturday night in Hobart is your last chance for a proper waterfront meal.",
@@ -681,17 +708,20 @@ const DAYS = [
 },
 {
   num:8, date:"Sun 19 Jul", weekday:"Day eight", title:"Departure — JQ756", region:"Hobart",
-  hotel:null,
-  dayMap:"Hobart+CBD+to:Hobart+Airport",
+  hotel:"St Ives Apartments · checkout by 6:45am",
+  leaveBy:"6:45am from St Ives (non-negotiable for 9:55am flight)",
+  covers:"Checkout · Hobart Airport · refuel · return rental · JQ756 9:55am → Brisbane",
+  dayMap:"St+Ives+Apartments+Hobart+to:Hobart+Airport",
   images:[], videos:[], reels:[], photoQuery:null,
   mapQuery:"Hobart Airport", mapLink:"https://maps.google.com/?cid=1081929675368919056",
-  drive:{dist:"~20 km", time:"~20 min", road:"Southern Outlet / Tasman Hwy", stops:"Hotel → Airport"},
+  drive:{dist:"~20 km", time:"~20 min", road:"Southern Outlet / Tasman Hwy", stops:"St Ives checkout → Airport"},
   timeline:[
-    ["6:00am","Wake, pack, checkout","Light breakfast — no lingering"],
-    ["6:45am","Drive to Hobart Airport","~20 min from CBD, allow extra for Sunday traffic"],
+    ["6:00am","Wake & pack","Pre-arrange checkout — no cooked breakfast"],
+    ["6:45am","Leave St Ives Apartments","Allow 20 min to airport + rental return"],
     ["7:15am","Refuel the rental","Airport-area servo"],
     ["7:30am","Return the rental car","Allow time for inspection"],
-    ["9:55am","JQ756 Hobart → Brisbane","Check in online the night before · safe travels!"]
+    ["8:30am","Airport check-in","Jetstar — online check-in done night before"],
+    ["9:55am","JQ756 Hobart → Brisbane","Safe travels!"]
   ],
   story:"Eight days, one loop of the island — wombats, snow, orange rocks and a Saturday at Salamanca Market. Safe flight home.",
   eat:[], activities:[], night:[], insta:[]
@@ -804,6 +834,7 @@ daysContainer.innerHTML = DAYS.map(d => `
           <h3>${d.title}</h3>
           <span class="region-badge">${d.region}</span>
           ${d.hotel ? `<div class="hotel-tag">🏨 <b>${d.hotel}</b></div>` : ''}
+          ${d.leaveBy || d.covers ? `<div class="leave-card">${d.leaveBy ? `<div class="lb">⏰ Leave by ${d.leaveBy}</div>` : ''}${d.covers ? `<div class="covers"><b>Cover today:</b> ${d.covers}</div>` : ''}</div>` : ''}
         </div>
       </div>
 
