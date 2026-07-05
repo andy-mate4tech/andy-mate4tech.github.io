@@ -74,6 +74,51 @@ permalink: /
   .qr-route-chips span::after{content:"→"; margin-left:6px; color:var(--sandstone-deep);}
   .qr-route-chips span:last-child::after{content:"";}
 
+  .bookings-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-bottom:18px;}
+  .booking-card{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; position:relative;}
+  .booking-card.confirmed{border-color:rgba(76,107,87,0.45); background:linear-gradient(160deg,#fff,#F4FAF6);}
+  .booking-card .status{position:absolute; top:14px; right:14px; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; padding:4px 9px; border-radius:99px; background:var(--moss); color:#fff;}
+  .booking-card .bname{font-family:'Fraunces',serif; font-size:17px; font-weight:600; padding-right:80px;}
+  .booking-card .bcity{font-size:12.5px; color:var(--slate-2); font-weight:700; margin-top:4px;}
+  .booking-card .bdates{margin-top:10px; font-size:13px; font-weight:700;}
+  .booking-card .bprice{margin-top:6px; font-size:14px; color:var(--ember); font-weight:800;}
+  .booking-card .bnote{margin-top:6px; font-size:12px; color:var(--slate-2);}
+
+  .map-tabs{display:flex; gap:6px; flex-wrap:wrap; padding:14px 16px; background:#fff; border-bottom:1px solid var(--line);}
+  .map-tab{font-size:11.5px; font-weight:800; padding:7px 12px; border-radius:99px; border:1px solid var(--line); background:var(--paper); cursor:pointer; color:var(--slate);}
+  .map-tab.active,.map-tab:hover{background:var(--slate); color:#fff; border-color:var(--slate);}
+  .map-day-panel{display:grid; grid-template-columns:1fr 280px; gap:0; background:#fff;}
+  @media (max-width:860px){.map-day-panel{grid-template-columns:1fr;}}
+  .map-day-panel iframe{width:100%; height:340px; border:0; display:block;}
+  .map-day-sidebar{padding:16px 18px; border-left:1px solid var(--line); font-size:13px; max-height:340px; overflow-y:auto;}
+  @media (max-width:860px){.map-day-sidebar{border-left:none; border-top:1px solid var(--line); max-height:none;}}
+  .map-day-sidebar h4{font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ember); font-weight:800; margin-bottom:10px;}
+  .map-day-sidebar li{padding:7px 0; border-bottom:1px dashed var(--line); list-style:none;}
+  .map-day-sidebar li:last-child{border-bottom:none;}
+  .map-day-sidebar .t{font-weight:800; color:var(--sandstone-deep); font-size:12px;}
+  .map-day-sidebar .p{font-weight:700; margin-top:2px;}
+  .map-day-sidebar .s{color:var(--slate-2); font-size:12px; margin-top:2px;}
+
+  .photo-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:16px;}
+  @media (max-width:600px){.photo-strip{grid-template-columns:1fr 1fr;}}
+  .photo-card{border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; background:var(--slate);}
+  .photo-card img{width:100%; height:100%; object-fit:cover; display:block;}
+  .photo-card .cap{position:absolute; left:0; right:0; bottom:0; padding:24px 10px 8px; background:linear-gradient(transparent,rgba(14,27,30,0.75)); color:#fff; font-size:11px; font-weight:700;}
+
+  .yt-embed{position:relative; aspect-ratio:16/9; border-radius:14px; overflow:hidden; background:var(--slate); box-shadow:var(--shadow); margin-bottom:12px;}
+  .yt-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .yt-shorts-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-top:10px;}
+  .yt-short-embed{position:relative; aspect-ratio:9/16; border-radius:14px; overflow:hidden; background:var(--slate); max-height:280px;}
+  .yt-short-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+
+  .reel-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; margin-top:12px;}
+  .reel-card{background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden;}
+  .reel-card blockquote{margin:0!important; min-width:100%!important;}
+  .reel-link{display:flex; align-items:center; gap:10px; padding:12px 14px; text-decoration:none; color:inherit; font-size:13px; font-weight:700; border-top:1px solid var(--line);}
+  .reel-link:hover{background:var(--snow);}
+
+  .hotel-tag{display:inline-flex; align-items:center; gap:6px; margin-top:14px; padding:10px 14px; background:linear-gradient(160deg,#fff,#F4FAF6); border:1px solid rgba(76,107,87,0.35); border-radius:12px; font-size:13px;}
+  .hotel-tag b{color:var(--moss);}
 
   .nav-inner{display:flex; gap:6px; overflow-x:auto; padding:10px 20px; max-width:1180px; margin:0 auto; scrollbar-width:none; -webkit-overflow-scrolling:touch;}
   .nav-inner::-webkit-scrollbar{display:none;}
@@ -230,14 +275,57 @@ permalink: /
       <p>Everything below is a summary of the full itinerary — accommodation nights for booking, the latest sensible departure time each day, and the whole loop on one map. Scroll down for the day-by-day detail on history, food, photo spots and bars.</p>
     </div>
 
+    <div class="bookings-grid">
+      <div class="booking-card confirmed">
+        <span class="status">Confirmed</span>
+        <div class="bname">St Ives Apartments</div>
+        <div class="bcity">Hobart · 2 nights</div>
+        <div class="bdates">Check-in Sun 12 Jul · Check-out Tue 14 Jul</div>
+        <div class="bprice">AUD 378 · Free cancellation</div>
+        <div class="bnote">Your Hobart base for arrival day and Port Arthur day trip.</div>
+      </div>
+      <div class="booking-card confirmed">
+        <span class="status">Confirmed</span>
+        <div class="bname">Modern 3 Bedroom Townhouse — 4 mins to CBD</div>
+        <div class="bcity">Launceston · 2 nights</div>
+        <div class="bdates">Check-in Wed 15 Jul · Check-out Fri 17 Jul</div>
+        <div class="bprice">AUD 558 · Free cancellation</div>
+        <div class="bnote">Parking available · Perfect for Ben Lomond ski day + Bay of Fires leg.</div>
+      </div>
+      <div class="booking-card">
+        <div class="bname">Bicheno / Coles Bay</div>
+        <div class="bcity">East Coast · 1 night</div>
+        <div class="bdates">Tue 14 Jul → Wed 15 Jul</div>
+        <div class="bnote">Still to book — penguin tour evening optional.</div>
+      </div>
+      <div class="booking-card">
+        <div class="bname">Cradle Mountain</div>
+        <div class="bcity">Central Highlands · 1 night</div>
+        <div class="bdates">Fri 17 Jul → Sat 18 Jul</div>
+        <div class="bnote">Still to book — Discovery Parks or Peppers Lodge.</div>
+      </div>
+      <div class="booking-card">
+        <div class="bname">Strahan Village / Risby Cove</div>
+        <div class="bcity">West Coast · 1 night</div>
+        <div class="bdates">Sat 18 Jul → Sun 19 Jul</div>
+        <div class="bnote">Still to book — Gordon River Cruise from here.</div>
+      </div>
+      <div class="booking-card">
+        <div class="bname">Hobart return night</div>
+        <div class="bcity">Hobart · 1 night</div>
+        <div class="bdates">Sun 19 Jul → Mon 20 Jul</div>
+        <div class="bnote">Still to book — farewell dinner + Mount Wellington.</div>
+      </div>
+    </div>
+
     <div class="qr-grid">
       <div class="qr-card">
         <h3>🏨 Where to book — nights per place</h3>
         <table class="qr">
           <tr><th>Stay</th><th>Nights</th><th>Check&#8209;in</th><th>Check&#8209;out</th></tr>
-          <tr><td>Hobart <span class="qr-badge">arrival</span></td><td>2</td><td class="muted">Sun 12 Jul</td><td class="muted">Tue 14 Jul</td></tr>
+          <tr><td>St Ives Apartments <span class="qr-badge">✓ booked</span></td><td>2</td><td class="muted">Sun 12 Jul</td><td class="muted">Tue 14 Jul</td></tr>
           <tr><td>Bicheno / Coles Bay</td><td>1</td><td class="muted">Tue 14 Jul</td><td class="muted">Wed 15 Jul</td></tr>
-          <tr><td>Launceston</td><td>2</td><td class="muted">Wed 15 Jul</td><td class="muted">Fri 17 Jul</td></tr>
+          <tr><td>Modern 3BR Townhouse <span class="qr-badge">✓ booked</span></td><td>2</td><td class="muted">Wed 15 Jul</td><td class="muted">Fri 17 Jul</td></tr>
           <tr><td>Cradle Mountain</td><td>1</td><td class="muted">Fri 17 Jul</td><td class="muted">Sat 18 Jul</td></tr>
           <tr><td>Strahan <span class="qr-badge">new</span></td><td>1</td><td class="muted">Sat 18 Jul</td><td class="muted">Sun 19 Jul</td></tr>
           <tr><td>Hobart <span class="qr-badge">return</span></td><td>1</td><td class="muted">Sun 19 Jul</td><td class="muted">Mon 20 Jul</td></tr>
@@ -262,9 +350,13 @@ permalink: /
       </div>
     </div>
 
-    <div class="qr-map-card">
-      <iframe src="https://maps.google.com/maps?saddr=Hobart+Airport&daddr=MONA+Museum+Hobart+to:Port+Arthur+Historic+Site+to:Wineglass+Bay+Freycinet+National+Park+to:Bicheno+to:Bay+of+Fires+Tasmania+to:Launceston+Tasmania+to:Ben+Lomond+Ski+Village+to:Cradle+Mountain+Visitor+Centre+to:Strahan+Tasmania+to:Hobart+Airport&t=&z=7&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
-      <div class="qr-route-chips">
+    <div class="qr-map-card" id="tripMapCard">
+      <div class="map-tabs" id="mapTabs"></div>
+      <div class="map-day-panel">
+        <iframe id="tripMapFrame" loading="lazy" title="Day route map"></iframe>
+        <div class="map-day-sidebar" id="mapDaySidebar"></div>
+      </div>
+      <div class="qr-route-chips" id="mapRouteChips">
         <span>Hobart Airport</span><span>MONA</span><span>Port Arthur</span><span>Freycinet</span><span>Bicheno</span><span>Bay of Fires</span><span>Launceston</span><span>Ben Lomond</span><span>Cradle Mountain</span><span>Strahan</span><span>Hobart Airport</span>
       </div>
       <div class="qr-map-link">
@@ -305,13 +397,13 @@ permalink: /
       </div>
       <div class="info-card">
         <h4>Where you'll sleep</h4>
-        <p style="margin-top:0;">Hobart (x2) → Bicheno → Launceston (x2) → Cradle Mountain → <b>Strahan (new)</b> → Hobart. 2 rooms every night.</p>
+        <p style="margin-top:0;"><b>Confirmed:</b> St Ives Apartments (Hobart) · Modern 3BR Townhouse (Launceston). Still to book: Bicheno, Cradle Mountain, Strahan, final Hobart night.</p>
         <ul>
-          <li>Hotel Grand Chancellor, Hobart</li>
+          <li><b>✓ St Ives Apartments</b> — Hobart, 12–14 Jul (AUD 378)</li>
+          <li><b>✓ Modern 3BR Townhouse</b> — Launceston, 15–17 Jul (AUD 558)</li>
           <li>Beachfront Bicheno / Freycinet Lodge</li>
-          <li>Peppers Silo, Launceston</li>
           <li>Discovery Parks / Peppers Cradle Mountain Lodge</li>
-          <li>Strahan Village or Risby Cove, Strahan</li>
+          <li>Strahan Village or Risby Cove</li>
         </ul>
       </div>
       <div class="info-card">
@@ -351,8 +443,8 @@ permalink: /
     </div>
     <div class="link-grid">
       <a href="https://www.vroomvroomvroom.com.au/locations/hobart-airport/" target="_blank">Compare car rentals ↗</a>
-      <a href="https://www.grandchancellorhotels.com/hotel-grand-chancellor-hobart" target="_blank">Hobart hotel ↗</a>
-      <a href="https://www.peppers.com.au/silo-hotel" target="_blank">Launceston — Peppers Silo ↗</a>
+      <a href="https://www.booking.com/" target="_blank">St Ives Apartments ↗</a>
+      <a href="https://www.booking.com/" target="_blank">Launceston townhouse ↗</a>
       <a href="https://www.discoveryparks.com.au/tasmania/cradle-mountain" target="_blank">Cradle Mountain stay ↗</a>
       <a href="https://www.strahanvillage.com.au/" target="_blank">Strahan Village ↗</a>
       <a href="https://www.gordonrivercruises.com.au/" target="_blank">Gordon River Cruises ↗</a>
@@ -380,14 +472,22 @@ permalink: /
 const DAYS = [
 {
   num:1, date:"Sun 12 Jul", weekday:"Day one", title:"Welcome to Hobart", region:"Hobart",
-  videos:[["LNErDYzArr0","MONA, the short version",true]],
+  hotel:"St Ives Apartments · Confirmed · AUD 378",
+  dayMap:"Hobart+Airport+to:St+Ives+Apartments+Hobart+to:MONA+Museum+Hobart+to:Salamanca+Place+Hobart+to:Constitution+Dock+Hobart",
+  images:[
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/MONA_%28Museum_of_Old_and_New_Art%29%2C_Berriedale%2C_Hobart%2C_Tasmania.jpg/960px-MONA_%28Museum_of_Old_and_New_Art%29%2C_Berriedale%2C_Hobart%2C_Tasmania.jpg","MONA, Berriedale"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Salamanca_Place%2C_Hobart%2C_Tasmania.jpg/960px-Salamanca_Place%2C_Hobart%2C_Tasmania.jpg","Salamanca Place"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Constitution_Dock%2C_Hobart%2C_Tasmania.jpg/960px-Constitution_Dock%2C_Hobart%2C_Tasmania.jpg","Constitution Dock"]
+  ],
+  videos:[["LNErDYzArr0","MONA, the short version",true],["SDqnrszHIj4","Mount Wellington in the snow",true]],
+  reels:[["https://www.instagram.com/reel/DZ2DxuZvEwo/","MONA, Bay of Fires & Salamanca — winter Tassie"],["https://www.instagram.com/reel/DV-WnKvAbTD/","Full Tasmania road trip inspiration"]],
   photoQuery:"MONA Hobart Salamanca Place",
   mapQuery:"MONA Museum Hobart", mapLink:"https://maps.google.com/?cid=14011177854619217109",
-  drive:{dist:"~35 km", time:"~45 min total", road:"Brooker Hwy + local streets", stops:"Airport → Hotel → MONA → Salamanca → Constitution Dock"},
+  drive:{dist:"~35 km", time:"~45 min total", road:"Brooker Hwy + local streets", stops:"Airport → St Ives → MONA → Salamanca → Constitution Dock"},
   timeline:[
     ["9:10am","Land at Hobart Airport","Collect luggage, head to the rental desks"],
     ["10:00am","Pick up the rental car","Inspect, load up — snow chains sorted later in Launceston"],
-    ["11:00am","Check in","Hotel Grand Chancellor, waterfront"],
+    ["11:00am","Check in — St Ives Apartments","Confirmed booking · free cancellation"],
     ["12:00pm","Lunch at Salamanca Place","Historic sandstone warehouses, cafes & galleries"],
     ["1:30pm","MONA","Ferry from Brooke Street Pier (25 min) or drive — entry is free, allow 3–4 hours"],
     ["6:00pm","Constitution Dock","Fishing boats, Victoria Dock, sunset over the water"],
@@ -401,7 +501,15 @@ const DAYS = [
 },
 {
   num:2, date:"Mon 13 Jul", weekday:"Day two", title:"Port Arthur & Richmond", region:"Tasman Peninsula",
+  hotel:"St Ives Apartments · night 2 of 2",
+  dayMap:"St+Ives+Apartments+Hobart+to:Richmond+Bridge+Tasmania+to:Port+Arthur+Historic+Site+to:St+Ives+Apartments+Hobart",
+  images:[
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Port_Arthur_Separate_Prison_2013.jpg/960px-Port_Arthur_Separate_Prison_2013.jpg","Port Arthur Penitentiary"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Richmond_Bridge%2C_Tasmania.jpg/960px-Richmond_Bridge%2C_Tasmania.jpg","Richmond Bridge (1823)"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Port_Arthur%2C_Tasmania%2C_Australia_-_panoramio.jpg/960px-Port_Arthur%2C_Tasmania%2C_Australia_-_panoramio.jpg","Port Arthur harbour"]
+  ],
   videos:[["kuWvL1Vfhmw","Tasman Peninsula & Port Arthur",false]],
+  reels:[],
   photoQuery:"Port Arthur Historic Site Richmond Bridge Tasmania",
   mapQuery:"Port Arthur Historic Site", mapLink:"https://maps.google.com/?cid=289296137135721216",
   drive:{dist:"~200 km round trip", time:"~2.5 hrs", road:"Arthur Highway (A9) via Tasman Hwy", stops:"Hobart → Richmond → Port Arthur → Hobart"},
@@ -422,7 +530,15 @@ const DAYS = [
 },
 {
   num:3, date:"Tue 14 Jul", weekday:"Day three", title:"Freycinet & Wineglass Bay", region:"East Coast",
+  hotel:"Bicheno / Coles Bay · to book",
+  dayMap:"St+Ives+Apartments+Hobart+to:Swansea+Tasmania+to:Wineglass+Bay+Lookout+to:Honeymoon+Bay+Freycinet+to:Bicheno+Tasmania",
+  images:[
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Wineglass_Bay%2C_Freycinet_National_Park%2C_Eastern_Tasmania%2C_Australia_2019-03-09.jpg/960px-Wineglass_Bay%2C_Freycinet_National_Park%2C_Eastern_Tasmania%2C_Australia_2019-03-09.jpg","Wineglass Bay lookout"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Honeymoon_Bay%2C_Freycinet_National_Park%2C_Tasmania.jpg/960px-Honeymoon_Bay%2C_Freycinet_National_Park%2C_Tasmania.jpg","Honeymoon Bay"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Cape_Tourville_Lighthouse%2C_Freycinet_National_Park%2C_Tasmania.jpg/960px-Cape_Tourville_Lighthouse%2C_Freycinet_National_Park%2C_Tasmania.jpg","Cape Tourville Lighthouse"]
+  ],
   videos:[["t-hWT60aMTE","Freycinet National Park, from above",false],["ku8-GmYne-k","Best beach in Tassie? Wineglass Bay hike",true],["7Fr6Lzr0YWY","Bicheno's little penguins at dusk",false]],
+  reels:[["https://www.instagram.com/reel/DV-WnKvAbTD/","Freycinet & Wineglass Bay road trip"]],
   photoQuery:"Wineglass Bay Freycinet Honeymoon Bay Tasmania",
   mapQuery:"Wineglass Bay Lookout", mapLink:"https://maps.google.com/?cid=2959697588719571316",
   drive:{dist:"~230 km", time:"~3.5 hrs", road:"Tasman Highway via Swansea", stops:"Hobart → Swansea → Freycinet → Coles Bay → Bicheno"},
@@ -444,7 +560,15 @@ const DAYS = [
 },
 {
   num:4, date:"Wed 15 Jul", weekday:"Day four", title:"Bay of Fires to Launceston", region:"North Coast",
+  hotel:"Modern 3BR Townhouse · Confirmed · AUD 558 · night 1 of 2",
+  dayMap:"Bicheno+Tasmania+to:Bay+of+Fires+Conservation+Area+to:St+Helens+Tasmania+to:Modern+3+Bedroom+Townhouse+Launceston",
+  images:[
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bay_of_Fires%2C_Tasmania.jpg/960px-Bay_of_Fires%2C_Tasmania.jpg","Bay of Fires orange lichen rocks"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Cataract_Gorge%2C_Launceston%2C_Tasmania.jpg/960px-Cataract_Gorge%2C_Launceston%2C_Tasmania.jpg","Cataract Gorge"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Launceston%2C_Tasmania%2C_Australia_-_panoramio_%282%29.jpg/960px-Launceston%2C_Tasmania%2C_Australia_-_panoramio_%282%29.jpg","Launceston CBD"]
+  ],
   videos:[["D3-LS-UR_iw","Bay of Fires, from above",false],["FQ2AxVIBi6k","The world's longest single-span chairlift",false]],
+  reels:[["https://www.instagram.com/reel/DZ2DxuZvEwo/","Binalong Bay & Bay of Fires dawn swim"]],
   photoQuery:"Bay of Fires Cataract Gorge Launceston Tasmania",
   mapQuery:"Bay of Fires Conservation Area", mapLink:"https://maps.google.com/?cid=1081929675368947024",
   drive:{dist:"~260 km", time:"~4 hrs", road:"Tasman Hwy via St Helens, inland via Scottsdale", stops:"Bicheno → Bay of Fires → St Helens → Launceston"},
@@ -453,7 +577,7 @@ const DAYS = [
     ["9:30am","Bay of Fires","Orange lichen-covered granite, white sand, short walks"],
     ["11:00am","St Helens","Coffee stop, charming coastal town"],
     ["12:00pm","Continue to Launceston","Inland via Scottsdale, ~2.5 hrs"],
-    ["2:30pm","Check in","Peppers Silo Launceston — meet Archie the hotel dog"],
+    ["2:30pm","Check in","Modern 3 Bedroom Townhouse — 4 mins to CBD · confirmed"],
     ["3:00pm","Cataract Gorge Reserve","12 min drive — chairlift, peacocks, dolerite cliffs"],
     ["5:00pm","Coffee, Launceston CBD",""],
     ["7:00pm","Dinner","Grain of the Silos, on-site at the hotel"]
@@ -466,7 +590,15 @@ const DAYS = [
 },
 {
   num:5, date:"Thu 16 Jul", weekday:"Day five ⭐", title:"Ben Lomond ski day", region:"Northeast",
+  hotel:"Modern 3BR Townhouse · night 2 of 2",
+  dayMap:"Launceston+Tasmania+to:Ben+Lomond+Ski+Village+to:Launceston+Tasmania",
+  images:[
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Ben_Lomond_Ski_Resort%2C_Tasmania.jpg/960px-Ben_Lomond_Ski_Resort%2C_Tasmania.jpg","Ben Lomond ski village"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Jacobs_Ladder%2C_Ben_Lomond_National_Park%2C_Tasmania.jpg/960px-Jacobs_Ladder%2C_Ben_Lomond_National_Park%2C_Tasmania.jpg","Jacobs Ladder switchbacks"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Snow_at_Ben_Lomond%2C_Tasmania.jpg/960px-Snow_at_Ben_Lomond%2C_Tasmania.jpg","Snow on the plateau"]
+  ],
   videos:[["OJguCDuazqk","A family ski day at Ben Lomond",false]],
+  reels:[],
   photoQuery:"Ben Lomond ski Jacobs Ladder Tasmania",
   mapQuery:"Ben Lomond Ski Village", mapLink:"https://maps.google.com/?cid=1081929675368947936",
   drive:{dist:"~120 km", time:"~2.5 hrs (mountain roads)", road:"Ben Lomond Rd via Jacobs Ladder switchbacks", stops:"Launceston → Jacobs Ladder → Ben Lomond Village → Launceston"},
@@ -488,7 +620,15 @@ const DAYS = [
 },
 {
   num:6, date:"Fri 17 Jul", weekday:"Day six", title:"Cradle Mountain — wilderness & wombats", region:"Central Highlands",
+  hotel:"Cradle Mountain · to book",
+  dayMap:"Launceston+Tasmania+to:Sheffield+Tasmania+to:Cradle+Mountain+Visitor+Centre+to:Dove+Lake+Cradle+Mountain",
+  images:[
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Dove_Lake_and_Cradle_Mountain%2C_Tasmania.jpg/960px-Dove_Lake_and_Cradle_Mountain%2C_Tasmania.jpg","Dove Lake & Cradle Mountain"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Wombat_at_Cradle_Mountain%2C_Tasmania.jpg/960px-Wombat_at_Cradle_Mountain%2C_Tasmania.jpg","Wombat at Ronny Creek"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Sheffield_mural%2C_Tasmania.jpg/960px-Sheffield_mural%2C_Tasmania.jpg","Sheffield mural town"]
+  ],
   videos:[["VYrv_UvQtEk","Dove Lake & Cradle Mountain, from above",false],["ojYFW1cE7L8","Meet a wild wombat grazing at Cradle Mountain",true],["iiL_nSC1Iao","Sheffield, the town of murals",false]],
+  reels:[["https://www.instagram.com/reel/C94QHXtv124/","Cradle Mountain winter — wombats & boardwalks"],["https://www.instagram.com/reel/DZBr7mWpOQ5/","Kayaking beneath Cradle Mountain"]],
   photoQuery:"Dove Lake Cradle Mountain wombat Ronny Creek",
   mapQuery:"Dove Lake Cradle Mountain", mapLink:"https://maps.google.com/?cid=3027484711832983472",
   drive:{dist:"~220 km", time:"~3.5 hrs", road:"Bass Hwy via Deloraine & Sheffield", stops:"Launceston → Deloraine → Ashgrove Cheese → Sheffield → Cradle Mountain"},
@@ -512,7 +652,15 @@ const DAYS = [
 },
 {
   num:7, date:"Sat 18 Jul", weekday:"Day seven — new", title:"Cradle Mountain to Strahan", region:"West Coast",
+  hotel:"Strahan Village / Risby Cove · to book",
+  dayMap:"Cradle+Mountain+Visitor+Centre+to:Queenstown+Tasmania+to:Strahan+Tasmania+to:Ocean+Beach+Strahan",
+  images:[
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Queenstown%2C_Tasmania%2C_Australia.jpg/960px-Queenstown%2C_Tasmania%2C_Australia.jpg","Queenstown bare hills"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Strahan%2C_Tasmania%2C_Australia.jpg/960px-Strahan%2C_Tasmania%2C_Australia.jpg","Strahan harbour"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gordon_River%2C_Tasmania.jpg/960px-Gordon_River%2C_Tasmania.jpg","Gordon River rainforest"]
+  ],
   videos:[["VUv90SkmqqA","Gordon River Cruise & Sarah Island",false]],
+  reels:[],
   photoQuery:"Strahan Gordon River Ocean Beach Tasmania",
   mapQuery:"Strahan Tasmania", mapLink:"https://maps.google.com/?q=Strahan+TAS",
   drive:{dist:"~140 km", time:"~2–2.5 hrs", road:"Murchison Hwy (A10) via Queenstown", stops:"Cradle Mountain → Queenstown → Strahan"},
@@ -534,7 +682,15 @@ const DAYS = [
 },
 {
   num:8, date:"Sun 19 Jul", weekday:"Day eight — new", title:"Strahan to Hobart", region:"West → South",
+  hotel:"Hobart return night · to book",
+  dayMap:"Strahan+Tasmania+to:Derwent+Bridge+Tasmania+to:Salamanca+Place+Hobart+to:kunanyi+Mount+Wellington",
+  images:[
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/The_Wall_in_the_Wilderness%2C_Derwent_Bridge.jpg/960px-The_Wall_in_the_Wilderness%2C_Derwent_Bridge.jpg","The Wall in the Wilderness"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mount_Wellington%2C_Tasmania.jpg/960px-Mount_Wellington%2C_Tasmania.jpg","kunanyi / Mount Wellington"],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Salamanca_Place%2C_Hobart%2C_Tasmania.jpg/960px-Salamanca_Place%2C_Hobart%2C_Tasmania.jpg","Salamanca Place (Sunday)"]
+  ],
   videos:[["KkEcel4qteo","Salamanca Market on a Saturday (for reference — you'll visit on a Sunday, so no stalls)",false],["SDqnrszHIj4","Kunanyi / Mount Wellington in the snow",true]],
+  reels:[["https://www.instagram.com/reel/DZ2DxuZvEwo/","Salamanca & Hobart winter guide"]],
   photoQuery:"kunanyi Mount Wellington Salamanca Hobart Tasmania",
   mapQuery:"kunanyi Mount Wellington", mapLink:"https://maps.google.com/?q=kunanyi+Mount+Wellington",
   drive:{dist:"~300 km", time:"~4.5 hrs", road:"Lyell Highway (A10) via Queenstown & Derwent Bridge", stops:"Strahan → Queenstown → Derwent Bridge → Hobart"},
@@ -555,7 +711,9 @@ const DAYS = [
 },
 {
   num:9, date:"Mon 20 Jul", weekday:"Day nine", title:"Departure", region:"Hobart",
-  videos:[], photoQuery:null,
+  hotel:null,
+  dayMap:"Hobart+CBD+to:Hobart+Airport",
+  images:[], videos:[], reels:[], photoQuery:null,
   mapQuery:"Hobart Airport", mapLink:"https://maps.google.com/?cid=1081929675368919056",
   drive:{dist:"~20 km", time:"~20 min", road:"Southern Outlet / Brooker Hwy", stops:"Hobart CBD → Airport"},
   timeline:[
@@ -594,9 +752,69 @@ glance.innerHTML = DAYS.map(d=>`
 
 function ytThumb(id){ return `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }
 function ytWatch(id){ return `https://www.youtube.com/watch?v=${id}`; }
+function ytEmbed(id){ return `https://www.youtube-nocookie.com/embed/${id}?rel=0`; }
 function igLink(tag){ return `https://www.instagram.com/explore/tags/${tag}/`; }
 function mapEmbed(q){ return `https://maps.google.com/maps?q=${encodeURIComponent(q)}&t=&z=12&ie=UTF8&iwloc=&output=embed`; }
 function imgSearchLink(q){ return `https://www.google.com/search?q=${encodeURIComponent(q)}&tbm=isch`; }
+
+const FULL_LOOP = "Hobart+Airport+to:MONA+Museum+Hobart+to:Port+Arthur+Historic+Site+to:Wineglass+Bay+Freycinet+National+Park+to:Bicheno+to:Bay+of+Fires+Tasmania+to:Launceston+Tasmania+to:Ben+Lomond+Ski+Village+to:Cradle+Mountain+Visitor+Centre+to:Strahan+Tasmania+to:Hobart+Airport";
+function buildDayMapUrl(route){
+  if(!route) route = FULL_LOOP;
+  const idx = route.indexOf('+to:');
+  if(idx === -1) return `https://maps.google.com/maps?q=${encodeURIComponent(route.replace(/\+/g,' '))}&t=&z=9&ie=UTF8&iwloc=&output=embed`;
+  const origin = route.slice(0, idx);
+  const dest = route.slice(idx + 4);
+  const zoom = route === FULL_LOOP ? 7 : 9;
+  return `https://maps.google.com/maps?saddr=${origin}&daddr=${dest}&t=&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
+}
+
+function renderPhotos(images){
+  if(!images || !images.length) return '';
+  return `<div class="photo-strip">${images.map(im=>`
+    <div class="photo-card">
+      <img src="${im[0]}" alt="${im[1]}" loading="lazy">
+      <span class="cap">${im[1]}</span>
+    </div>`).join('')}</div>`;
+}
+
+function renderVideos(videos){
+  if(!videos || !videos.length) return '';
+  const main = videos.find(v=>!v[2]) || videos[0];
+  const shorts = videos.filter(v=>v[2]);
+  return `
+    <div class="yt-embed">
+      <iframe src="${ytEmbed(main[0])}" title="${main[1]}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-hint">▶ ${main[1]} — watch above, or <a href="${ytWatch(main[0])}" target="_blank" rel="noopener" style="color:var(--ember);">open on YouTube ↗</a></p>
+    ${shorts.length ? `
+    <div class="section-title-sm">YouTube Shorts</div>
+    <div class="yt-shorts-row">${shorts.map(v=>`
+      <div class="yt-short-embed">
+        <iframe src="${ytEmbed(v[0])}" title="${v[1]}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>`).join('')}</div>` : ''}
+    ${videos.length > 1 && !shorts.length ? `
+    <div class="video-grid" style="margin-top:10px;">
+      ${videos.slice(1).map(v=>`
+      <a class="video-card" href="${ytWatch(v[0])}" target="_blank" rel="noopener">
+        <img src="${ytThumb(v[0])}" alt="${v[1]}" loading="lazy">
+        <span class="play-badge"><svg viewBox="0 0 68 48"><path d="M66.5 7.7a8.4 8.4 0 0 0-5.9-6C55.8 0 34 0 34 0S12.2 0 7.4 1.7a8.4 8.4 0 0 0-5.9 6A87 87 0 0 0 0 24a87 87 0 0 0 1.5 16.3 8.4 8.4 0 0 0 5.9 6C12.2 48 34 48 34 48s21.8 0 26.6-1.7a8.4 8.4 0 0 0 5.9-6A87 87 0 0 0 68 24a87 87 0 0 0-1.5-16.3z" fill="#c1502e"/><path d="M27 34.5 45 24 27 13.5z" fill="#fff"/></svg></span>
+        <span class="cap">▶ ${v[1]}</span>
+      </a>`).join('')}
+    </div>` : ''}`;
+}
+
+function renderReels(reels){
+  if(!reels || !reels.length) return '';
+  return `
+    <div class="section-title-sm">Instagram Reels — people enjoying these places</div>
+    <div class="reel-grid">${reels.map(r=>`
+      <div class="reel-card">
+        <blockquote class="instagram-media" data-instgrm-permalink="${r[0]}" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:100%;padding:0;width:100%;">
+          <a href="${r[0]}" target="_blank" rel="noopener">${r[1]}</a>
+        </blockquote>
+        <a class="reel-link" href="${r[0]}" target="_blank" rel="noopener">📱 Watch reel on Instagram ↗</a>
+      </div>`).join('')}</div>`;
+}
 
 daysContainer.innerHTML = DAYS.map(d => `
   <section class="day" id="day${d.num}">
@@ -607,30 +825,22 @@ daysContainer.innerHTML = DAYS.map(d => `
           <div class="weekday">${d.weekday} · ${d.date}</div>
           <h3>${d.title}</h3>
           <span class="region-badge">${d.region}</span>
+          ${d.hotel ? `<div class="hotel-tag">🏨 <b>${d.hotel}</b></div>` : ''}
         </div>
       </div>
 
+      ${renderPhotos(d.images)}
+
       <div class="day-grid">
         <div>
-          ${d.videos.length ? `
-          <div class="video-grid">
-            ${d.videos.map(v => `
-            <a class="video-card" href="${ytWatch(v[0])}" target="_blank" rel="noopener">
-              <img src="${ytThumb(v[0])}" alt="${v[1]}" loading="lazy">
-              ${v[2] ? '<span class="short-tag">SHORT</span>' : ''}
-              <span class="play-badge">
-                <svg viewBox="0 0 68 48"><path d="M66.5 7.7a8.4 8.4 0 0 0-5.9-6C55.8 0 34 0 34 0S12.2 0 7.4 1.7a8.4 8.4 0 0 0-5.9 6A87 87 0 0 0 0 24a87 87 0 0 0 1.5 16.3 8.4 8.4 0 0 0 5.9 6C12.2 48 34 48 34 48s21.8 0 26.6-1.7a8.4 8.4 0 0 0 5.9-6A87 87 0 0 0 68 24a87 87 0 0 0-1.5-16.3z" fill="#c1502e"/><path d="M27 34.5 45 24 27 13.5z" fill="#fff"/></svg>
-              </span>
-              <span class="cap">▶ ${v[1]}</span>
-            </a>`).join('')}
-          </div>
-          <p class="video-hint">Tap a thumbnail to watch on YouTube (opens in a new tab) — includes real Shorts, not just full-length videos.</p>
-          ` : `
+          ${d.videos && d.videos.length ? renderVideos(d.videos) : `
           <div style="border-radius:var(--radius);background:var(--slate);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;">
             <span style="color:var(--ice);font-family:'Fraunces',serif;font-size:20px;">✈ Safe travels</span>
           </div>`}
 
-          ${d.photoQuery ? `<a class="more-photos" href="${imgSearchLink(d.photoQuery)}" target="_blank" rel="noopener">📷 See real photos of ${d.title} →</a>` : ''}
+          ${renderReels(d.reels)}
+
+          ${d.photoQuery ? `<a class="more-photos" href="${imgSearchLink(d.photoQuery)}" target="_blank" rel="noopener">📷 More photos of ${d.title} →</a>` : ''}
 
           <div class="story"><h4>The story</h4><p style="margin:0;">${d.story}</p></div>
 
@@ -641,7 +851,7 @@ daysContainer.innerHTML = DAYS.map(d => `
           </div>` : ''}
 
           ${d.timeline.length ? `
-          <details class="timeline-toggle">
+          <details class="timeline-toggle" open>
             <summary>Full day-by-day timeline</summary>
             <ul class="timeline">
               ${d.timeline.map(t=>`<li><div class="time">${t[0]}</div><div class="txt"><b>${t[1]}</b><span>${t[2]}</span></div></li>`).join('')}
@@ -658,8 +868,8 @@ daysContainer.innerHTML = DAYS.map(d => `
           </div>
 
           <div class="map-frame">
-            <iframe src="${mapEmbed(d.mapQuery)}" loading="lazy"></iframe>
-            <div class="map-link"><span>${d.mapQuery}</span><a href="${d.mapLink}" target="_blank">Open in Maps →</a></div>
+            <iframe src="${d.dayMap ? buildDayMapUrl(d.dayMap) : mapEmbed(d.mapQuery)}" loading="lazy" title="Map for ${d.title}"></iframe>
+            <div class="map-link"><span>${d.mapQuery || d.title}</span><a href="${d.mapLink}" target="_blank">Open in Maps →</a></div>
           </div>
 
           ${d.eat && d.eat.length ? `
@@ -678,6 +888,31 @@ daysContainer.innerHTML = DAYS.map(d => `
     </div>
   </section>
 `).join('');
+
+/* Interactive trip map tabs */
+const mapFrame = document.getElementById('tripMapFrame');
+const mapTabs = document.getElementById('mapTabs');
+const mapSidebar = document.getElementById('mapDaySidebar');
+
+const mapOptions = [{label:'Full loop', route:FULL_LOOP, day:null}, ...DAYS.filter(d=>d.dayMap).map(d=>({label:`Day ${d.num}`, route:d.dayMap, day:d}))];
+
+mapTabs.innerHTML = mapOptions.map((o,i)=>`<button type="button" class="map-tab${i===0?' active':''}" data-map-idx="${i}">${o.label}</button>`).join('');
+
+function showMap(idx){
+  const o = mapOptions[idx];
+  mapFrame.src = buildDayMapUrl(o.route);
+  mapTabs.querySelectorAll('.map-tab').forEach((t,i)=>t.classList.toggle('active', i===idx));
+  if(o.day){
+    mapSidebar.innerHTML = `<h4>${o.day.title} · ${o.day.date}</h4><ul>${o.day.timeline.map(t=>`<li><div class="t">${t[0]}</div><div class="p">${t[1]}</div><div class="s">${t[2]}</div></li>`).join('')}</ul>`;
+  } else {
+    mapSidebar.innerHTML = `<h4>Full 9-day island loop</h4><p style="margin:0;color:var(--slate-2);font-size:13px;">Tap a day tab to see that day's driving route and timeline. The full loop is ~1,450 km with Strahan on the wild west coast.</p>`;
+  }
+}
+mapTabs.addEventListener('click', e=>{
+  const btn = e.target.closest('[data-map-idx]');
+  if(btn) showMap(Number(btn.dataset.mapIdx));
+});
+showMap(0);
 
 /* Scroll progress bar */
 const progressBar = document.getElementById('progress');
@@ -705,5 +940,6 @@ const io = new IntersectionObserver((entries)=>{
 }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
 sections.forEach(s => io.observe(s));
 </script>
+<script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
