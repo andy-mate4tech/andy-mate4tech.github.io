@@ -7,7 +7,7 @@ permalink: /tasmania/
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tasmania Family Winter Adventure — 12–20 July 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@ permalink: /tasmania/
     --line: rgba(19,34,38,0.14); --shadow: 0 18px 40px -20px rgba(19,34,38,0.35); --radius: 18px;
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
-  html{scroll-behavior:smooth;}
-  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Manrope',sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased;}
+  html{scroll-behavior:smooth; overflow-x:hidden;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Manrope',sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden; overflow-y:auto; min-height:100%;}
   h1,h2,h3,h4,.display{font-family:'Fraunces',serif; letter-spacing:-0.01em; margin:0;}
   a{color:inherit;}
   img{max-width:100%; display:block;}
@@ -102,14 +102,23 @@ permalink: /tasmania/
   .photo-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:16px;}
   @media (max-width:600px){.photo-strip{grid-template-columns:1fr 1fr;}}
   .photo-card{border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/3; background:var(--slate);}
-  .photo-card img{width:100%; height:100%; object-fit:cover; display:block;}
+  .photo-card img{width:100%; height:100%; object-fit:cover; display:block; background:var(--slate-2);}
+  .photo-card img.is-fallback{opacity:0.92;}
   .photo-card .cap{position:absolute; left:0; right:0; bottom:0; padding:24px 10px 8px; background:linear-gradient(transparent,rgba(14,27,30,0.75)); color:#fff; font-size:11px; font-weight:700;}
 
-  .yt-embed{position:relative; aspect-ratio:16/9; border-radius:14px; overflow:hidden; background:var(--slate); box-shadow:var(--shadow); margin-bottom:12px;}
+  .yt-embed{position:relative; aspect-ratio:16/9; border-radius:14px; overflow:hidden; background:var(--slate); box-shadow:var(--shadow); margin-bottom:12px; cursor:pointer;}
   .yt-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .yt-embed .yt-facade{position:absolute; inset:0; border:0; padding:0; background:transparent; cursor:pointer; width:100%; height:100%;}
+  .yt-embed .yt-facade img{width:100%; height:100%; object-fit:cover; display:block;}
+  .yt-embed .yt-facade .play-badge{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(14,27,30,0.05), rgba(14,27,30,0.55));}
+  .yt-embed .yt-facade .play-badge svg{width:52px; height:52px;}
+  .yt-embed .yt-facade .cap{position:absolute; left:12px; right:12px; bottom:12px; color:#fff; font-size:12px; font-weight:700; text-shadow:0 1px 4px rgba(0,0,0,0.7); text-align:left;}
   .yt-shorts-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-top:10px;}
-  .yt-short-embed{position:relative; aspect-ratio:9/16; border-radius:14px; overflow:hidden; background:var(--slate); max-height:280px;}
+  .yt-short-embed{position:relative; aspect-ratio:9/16; border-radius:14px; overflow:hidden; background:var(--slate); max-height:280px; cursor:pointer;}
   .yt-short-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .yt-short-embed .yt-facade{position:absolute; inset:0; border:0; padding:0; background:transparent; cursor:pointer; width:100%; height:100%;}
+  .yt-short-embed .yt-facade img{width:100%; height:100%; object-fit:cover; display:block;}
+  .yt-short-embed .short-tag{position:absolute; top:8px; right:8px; background:var(--ember); color:#fff; font-size:9.5px; font-weight:800; padding:3px 7px; border-radius:99px;}
 
   .reel-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; margin-top:12px;}
   .reel-card{background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden;}
@@ -120,6 +129,7 @@ permalink: /tasmania/
   .hotel-tag{display:inline-flex; align-items:center; gap:6px; margin-top:14px; padding:10px 14px; background:linear-gradient(160deg,#fff,#F4FAF6); border:1px solid rgba(76,107,87,0.35); border-radius:12px; font-size:13px;}
   .hotel-tag b{color:var(--moss);}
 
+  .nav{position:sticky; top:3px; z-index:200; background:rgba(251,248,242,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
   .nav-inner{display:flex; gap:6px; overflow-x:auto; padding:10px 20px; max-width:1180px; margin:0 auto; scrollbar-width:none; -webkit-overflow-scrolling:touch;}
   .nav-inner::-webkit-scrollbar{display:none;}
   .nav a{white-space:nowrap; font-size:12.5px; font-weight:700; padding:9px 13px; border-radius:99px; color:var(--slate); text-decoration:none; border:1px solid transparent; min-height:36px; display:flex; align-items:center;}
@@ -353,7 +363,7 @@ permalink: /tasmania/
     <div class="qr-map-card" id="tripMapCard">
       <div class="map-tabs" id="mapTabs"></div>
       <div class="map-day-panel">
-        <iframe id="tripMapFrame" loading="lazy" title="Day route map"></iframe>
+        <iframe id="tripMapFrame" class="lazy-map" data-src="" loading="lazy" title="Day route map"></iframe>
         <div class="map-day-sidebar" id="mapDaySidebar"></div>
       </div>
       <div class="qr-route-chips" id="mapRouteChips">
@@ -475,9 +485,9 @@ const DAYS = [
   hotel:"St Ives Apartments · Confirmed · AUD 378",
   dayMap:"Hobart+Airport+to:St+Ives+Apartments+Hobart+to:MONA+Museum+Hobart+to:Salamanca+Place+Hobart+to:Constitution+Dock+Hobart",
   images:[
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/MONA_%28Museum_of_Old_and_New_Art%29%2C_Berriedale%2C_Hobart%2C_Tasmania.jpg/960px-MONA_%28Museum_of_Old_and_New_Art%29%2C_Berriedale%2C_Hobart%2C_Tasmania.jpg","MONA, Berriedale"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Salamanca_Place%2C_Hobart%2C_Tasmania.jpg/960px-Salamanca_Place%2C_Hobart%2C_Tasmania.jpg","Salamanca Place"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Constitution_Dock%2C_Hobart%2C_Tasmania.jpg/960px-Constitution_Dock%2C_Hobart%2C_Tasmania.jpg","Constitution Dock"]
+    ["https://img.youtube.com/vi/LNErDYzArr0/hqdefault.jpg","MONA, Berriedale"],
+    ["https://commons.wikimedia.org/wiki/Special:FilePath/Salamanca%20Place%2C%20Hobart.jpg?width=800","Salamanca Place"],
+    ["https://img.youtube.com/vi/SDqnrszHIj4/hqdefault.jpg","Mount Wellington / Hobart"]
   ],
   videos:[["LNErDYzArr0","MONA, the short version",true],["SDqnrszHIj4","Mount Wellington in the snow",true]],
   reels:[["https://www.instagram.com/reel/DZ2DxuZvEwo/","MONA, Bay of Fires & Salamanca — winter Tassie"],["https://www.instagram.com/reel/DV-WnKvAbTD/","Full Tasmania road trip inspiration"]],
@@ -504,9 +514,9 @@ const DAYS = [
   hotel:"St Ives Apartments · night 2 of 2",
   dayMap:"St+Ives+Apartments+Hobart+to:Richmond+Bridge+Tasmania+to:Port+Arthur+Historic+Site+to:St+Ives+Apartments+Hobart",
   images:[
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Port_Arthur_Separate_Prison_2013.jpg/960px-Port_Arthur_Separate_Prison_2013.jpg","Port Arthur Penitentiary"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Richmond_Bridge%2C_Tasmania.jpg/960px-Richmond_Bridge%2C_Tasmania.jpg","Richmond Bridge (1823)"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Port_Arthur%2C_Tasmania%2C_Australia_-_panoramio.jpg/960px-Port_Arthur%2C_Tasmania%2C_Australia_-_panoramio.jpg","Port Arthur harbour"]
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PortArthurPenitentiary.jpg/960px-PortArthurPenitentiary.jpg","Port Arthur Penitentiary"],
+    ["https://img.youtube.com/vi/kuWvL1Vfhmw/hqdefault.jpg","Tasman Peninsula drive"],
+    ["https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80","Richmond & Tasman Peninsula"]
   ],
   videos:[["kuWvL1Vfhmw","Tasman Peninsula & Port Arthur",false]],
   reels:[],
@@ -533,9 +543,9 @@ const DAYS = [
   hotel:"Bicheno / Coles Bay · to book",
   dayMap:"St+Ives+Apartments+Hobart+to:Swansea+Tasmania+to:Wineglass+Bay+Lookout+to:Honeymoon+Bay+Freycinet+to:Bicheno+Tasmania",
   images:[
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Wineglass_Bay%2C_Freycinet_National_Park%2C_Eastern_Tasmania%2C_Australia_2019-03-09.jpg/960px-Wineglass_Bay%2C_Freycinet_National_Park%2C_Eastern_Tasmania%2C_Australia_2019-03-09.jpg","Wineglass Bay lookout"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Honeymoon_Bay%2C_Freycinet_National_Park%2C_Tasmania.jpg/960px-Honeymoon_Bay%2C_Freycinet_National_Park%2C_Tasmania.jpg","Honeymoon Bay"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Cape_Tourville_Lighthouse%2C_Freycinet_National_Park%2C_Tasmania.jpg/960px-Cape_Tourville_Lighthouse%2C_Freycinet_National_Park%2C_Tasmania.jpg","Cape Tourville Lighthouse"]
+    ["https://commons.wikimedia.org/wiki/Special:FilePath/Wineglass%20Bay.jpg?width=800","Wineglass Bay lookout"],
+    ["https://img.youtube.com/vi/t-hWT60aMTE/hqdefault.jpg","Freycinet from above"],
+    ["https://img.youtube.com/vi/ku8-GmYne-k/hqdefault.jpg","Wineglass Bay hike"]
   ],
   videos:[["t-hWT60aMTE","Freycinet National Park, from above",false],["ku8-GmYne-k","Best beach in Tassie? Wineglass Bay hike",true],["7Fr6Lzr0YWY","Bicheno's little penguins at dusk",false]],
   reels:[["https://www.instagram.com/reel/DV-WnKvAbTD/","Freycinet & Wineglass Bay road trip"]],
@@ -563,9 +573,9 @@ const DAYS = [
   hotel:"Modern 3BR Townhouse · Confirmed · AUD 558 · night 1 of 2",
   dayMap:"Bicheno+Tasmania+to:Bay+of+Fires+Conservation+Area+to:St+Helens+Tasmania+to:Modern+3+Bedroom+Townhouse+Launceston",
   images:[
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bay_of_Fires%2C_Tasmania.jpg/960px-Bay_of_Fires%2C_Tasmania.jpg","Bay of Fires orange lichen rocks"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Cataract_Gorge%2C_Launceston%2C_Tasmania.jpg/960px-Cataract_Gorge%2C_Launceston%2C_Tasmania.jpg","Cataract Gorge"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Launceston%2C_Tasmania%2C_Australia_-_panoramio_%282%29.jpg/960px-Launceston%2C_Tasmania%2C_Australia_-_panoramio_%282%29.jpg","Launceston CBD"]
+    ["https://img.youtube.com/vi/D3-LS-UR_iw/hqdefault.jpg","Bay of Fires aerial"],
+    ["https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80","East coast morning light"],
+    ["https://img.youtube.com/vi/FQ2AxVIBi6k/hqdefault.jpg","Cataract Gorge chairlift"]
   ],
   videos:[["D3-LS-UR_iw","Bay of Fires, from above",false],["FQ2AxVIBi6k","The world's longest single-span chairlift",false]],
   reels:[["https://www.instagram.com/reel/DZ2DxuZvEwo/","Binalong Bay & Bay of Fires dawn swim"]],
@@ -593,9 +603,9 @@ const DAYS = [
   hotel:"Modern 3BR Townhouse · night 2 of 2",
   dayMap:"Launceston+Tasmania+to:Ben+Lomond+Ski+Village+to:Launceston+Tasmania",
   images:[
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Ben_Lomond_Ski_Resort%2C_Tasmania.jpg/960px-Ben_Lomond_Ski_Resort%2C_Tasmania.jpg","Ben Lomond ski village"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Jacobs_Ladder%2C_Ben_Lomond_National_Park%2C_Tasmania.jpg/960px-Jacobs_Ladder%2C_Ben_Lomond_National_Park%2C_Tasmania.jpg","Jacobs Ladder switchbacks"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Snow_at_Ben_Lomond%2C_Tasmania.jpg/960px-Snow_at_Ben_Lomond%2C_Tasmania.jpg","Snow on the plateau"]
+    ["https://img.youtube.com/vi/OJguCDuazqk/hqdefault.jpg","Ben Lomond family ski day"],
+    ["https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80","Alpine snow country"],
+    ["https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80","Mountain switchbacks"]
   ],
   videos:[["OJguCDuazqk","A family ski day at Ben Lomond",false]],
   reels:[],
@@ -623,9 +633,9 @@ const DAYS = [
   hotel:"Cradle Mountain · to book",
   dayMap:"Launceston+Tasmania+to:Sheffield+Tasmania+to:Cradle+Mountain+Visitor+Centre+to:Dove+Lake+Cradle+Mountain",
   images:[
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Dove_Lake_and_Cradle_Mountain%2C_Tasmania.jpg/960px-Dove_Lake_and_Cradle_Mountain%2C_Tasmania.jpg","Dove Lake & Cradle Mountain"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Wombat_at_Cradle_Mountain%2C_Tasmania.jpg/960px-Wombat_at_Cradle_Mountain%2C_Tasmania.jpg","Wombat at Ronny Creek"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Sheffield_mural%2C_Tasmania.jpg/960px-Sheffield_mural%2C_Tasmania.jpg","Sheffield mural town"]
+    ["https://img.youtube.com/vi/VYrv_UvQtEk/hqdefault.jpg","Dove Lake & Cradle Mountain"],
+    ["https://img.youtube.com/vi/ojYFW1cE7L8/hqdefault.jpg","Wild wombat at Ronny Creek"],
+    ["https://img.youtube.com/vi/iiL_nSC1Iao/hqdefault.jpg","Sheffield mural town"]
   ],
   videos:[["VYrv_UvQtEk","Dove Lake & Cradle Mountain, from above",false],["ojYFW1cE7L8","Meet a wild wombat grazing at Cradle Mountain",true],["iiL_nSC1Iao","Sheffield, the town of murals",false]],
   reels:[["https://www.instagram.com/reel/C94QHXtv124/","Cradle Mountain winter — wombats & boardwalks"],["https://www.instagram.com/reel/DZBr7mWpOQ5/","Kayaking beneath Cradle Mountain"]],
@@ -655,9 +665,9 @@ const DAYS = [
   hotel:"Strahan Village / Risby Cove · to book",
   dayMap:"Cradle+Mountain+Visitor+Centre+to:Queenstown+Tasmania+to:Strahan+Tasmania+to:Ocean+Beach+Strahan",
   images:[
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Queenstown%2C_Tasmania%2C_Australia.jpg/960px-Queenstown%2C_Tasmania%2C_Australia.jpg","Queenstown bare hills"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Strahan%2C_Tasmania%2C_Australia.jpg/960px-Strahan%2C_Tasmania%2C_Australia.jpg","Strahan harbour"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gordon_River%2C_Tasmania.jpg/960px-Gordon_River%2C_Tasmania.jpg","Gordon River rainforest"]
+    ["https://img.youtube.com/vi/VUv90SkmqqA/hqdefault.jpg","Gordon River Cruise"],
+    ["https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80","West coast wilderness"],
+    ["https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80","Strahan & Queenstown leg"]
   ],
   videos:[["VUv90SkmqqA","Gordon River Cruise & Sarah Island",false]],
   reels:[],
@@ -685,9 +695,9 @@ const DAYS = [
   hotel:"Hobart return night · to book",
   dayMap:"Strahan+Tasmania+to:Derwent+Bridge+Tasmania+to:Salamanca+Place+Hobart+to:kunanyi+Mount+Wellington",
   images:[
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/The_Wall_in_the_Wilderness%2C_Derwent_Bridge.jpg/960px-The_Wall_in_the_Wilderness%2C_Derwent_Bridge.jpg","The Wall in the Wilderness"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mount_Wellington%2C_Tasmania.jpg/960px-Mount_Wellington%2C_Tasmania.jpg","kunanyi / Mount Wellington"],
-    ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Salamanca_Place%2C_Hobart%2C_Tasmania.jpg/960px-Salamanca_Place%2C_Hobart%2C_Tasmania.jpg","Salamanca Place (Sunday)"]
+    ["https://img.youtube.com/vi/SDqnrszHIj4/hqdefault.jpg","kunanyi / Mount Wellington snow"],
+    ["https://commons.wikimedia.org/wiki/Special:FilePath/Salamanca%20Place%2C%20Hobart.jpg?width=800","Salamanca Place (Sunday)"],
+    ["https://img.youtube.com/vi/KkEcel4qteo/hqdefault.jpg","Salamanca Market reference"]
   ],
   videos:[["KkEcel4qteo","Salamanca Market on a Saturday (for reference — you'll visit on a Sunday, so no stalls)",false],["SDqnrszHIj4","Kunanyi / Mount Wellington in the snow",true]],
   reels:[["https://www.instagram.com/reel/DZ2DxuZvEwo/","Salamanca & Hobart winter guide"]],
@@ -768,33 +778,41 @@ function buildDayMapUrl(route){
   return `https://maps.google.com/maps?saddr=${origin}&daddr=${dest}&t=&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
 }
 
-function renderPhotos(images){
+function renderPhotos(images, fallbackId){
   if(!images || !images.length) return '';
+  const fb = fallbackId ? ytThumb(fallbackId) : '';
   return `<div class="photo-strip">${images.map(im=>`
     <div class="photo-card">
-      <img src="${im[0]}" alt="${im[1]}" loading="lazy">
+      <img src="${im[0]}" alt="${im[1]}" loading="lazy"${fb ? ` data-fallback="${fb}" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;this.classList.add('is-fallback')}"` : ''}>
       <span class="cap">${im[1]}</span>
     </div>`).join('')}</div>`;
+}
+
+function ytFacade(id, title, isShort){
+  const playSvg = '<svg viewBox="0 0 68 48"><path d="M66.5 7.7a8.4 8.4 0 0 0-5.9-6C55.8 0 34 0 34 0S12.2 0 7.4 1.7a8.4 8.4 0 0 0-5.9 6A87 87 0 0 0 0 24a87 87 0 0 0 1.5 16.3 8.4 8.4 0 0 0 5.9 6C12.2 48 34 48 34 48s21.8 0 26.6-1.7a8.4 8.4 0 0 0 5.9-6A87 87 0 0 0 68 24a87 87 0 0 0-1.5-16.3z" fill="#c1502e"/><path d="M27 34.5 45 24 27 13.5z" fill="#fff"/></svg>';
+  return `<button type="button" class="yt-facade" data-yt-id="${id}" aria-label="Play ${title}">
+    <img src="${ytThumb(id)}" alt="${title}" loading="lazy">
+    ${isShort ? '<span class="short-tag">SHORT</span>' : ''}
+    <span class="play-badge">${playSvg}</span>
+    <span class="cap">▶ ${title}</span>
+  </button>`;
 }
 
 function renderVideos(videos){
   if(!videos || !videos.length) return '';
   const main = videos.find(v=>!v[2]) || videos[0];
   const shorts = videos.filter(v=>v[2]);
+  const extras = videos.filter(v=>v !== main && !v[2]);
   return `
-    <div class="yt-embed">
-      <iframe src="${ytEmbed(main[0])}" title="${main[1]}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-    </div>
-    <p class="video-hint">▶ ${main[1]} — watch above, or <a href="${ytWatch(main[0])}" target="_blank" rel="noopener" style="color:var(--ember);">open on YouTube ↗</a></p>
+    <div class="yt-embed" data-yt-wrap>${ytFacade(main[0], main[1], !!main[2])}</div>
+    <p class="video-hint">▶ ${main[1]} — tap to play inline, or <a href="${ytWatch(main[0])}" target="_blank" rel="noopener" style="color:var(--ember);">open on YouTube ↗</a></p>
     ${shorts.length ? `
     <div class="section-title-sm">YouTube Shorts</div>
     <div class="yt-shorts-row">${shorts.map(v=>`
-      <div class="yt-short-embed">
-        <iframe src="${ytEmbed(v[0])}" title="${v[1]}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>`).join('')}</div>` : ''}
-    ${videos.length > 1 && !shorts.length ? `
+      <div class="yt-short-embed" data-yt-wrap>${ytFacade(v[0], v[1], true)}</div>`).join('')}</div>` : ''}
+    ${extras.length ? `
     <div class="video-grid" style="margin-top:10px;">
-      ${videos.slice(1).map(v=>`
+      ${extras.map(v=>`
       <a class="video-card" href="${ytWatch(v[0])}" target="_blank" rel="noopener">
         <img src="${ytThumb(v[0])}" alt="${v[1]}" loading="lazy">
         <span class="play-badge"><svg viewBox="0 0 68 48"><path d="M66.5 7.7a8.4 8.4 0 0 0-5.9-6C55.8 0 34 0 34 0S12.2 0 7.4 1.7a8.4 8.4 0 0 0-5.9 6A87 87 0 0 0 0 24a87 87 0 0 0 1.5 16.3 8.4 8.4 0 0 0 5.9 6C12.2 48 34 48 34 48s21.8 0 26.6-1.7a8.4 8.4 0 0 0 5.9-6A87 87 0 0 0 68 24a87 87 0 0 0-1.5-16.3z" fill="#c1502e"/><path d="M27 34.5 45 24 27 13.5z" fill="#fff"/></svg></span>
@@ -829,7 +847,7 @@ daysContainer.innerHTML = DAYS.map(d => `
         </div>
       </div>
 
-      ${renderPhotos(d.images)}
+      ${renderPhotos(d.images, d.videos && d.videos[0] ? d.videos[0][0] : null)}
 
       <div class="day-grid">
         <div>
@@ -868,7 +886,7 @@ daysContainer.innerHTML = DAYS.map(d => `
           </div>
 
           <div class="map-frame">
-            <iframe src="${d.dayMap ? buildDayMapUrl(d.dayMap) : mapEmbed(d.mapQuery)}" loading="lazy" title="Map for ${d.title}"></iframe>
+            <iframe class="lazy-map" data-src="${d.dayMap ? buildDayMapUrl(d.dayMap) : mapEmbed(d.mapQuery)}" title="Map for ${d.title}" loading="lazy"></iframe>
             <div class="map-link"><span>${d.mapQuery || d.title}</span><a href="${d.mapLink}" target="_blank">Open in Maps →</a></div>
           </div>
 
@@ -900,7 +918,9 @@ mapTabs.innerHTML = mapOptions.map((o,i)=>`<button type="button" class="map-tab$
 
 function showMap(idx){
   const o = mapOptions[idx];
-  mapFrame.src = buildDayMapUrl(o.route);
+  mapFrame.dataset.src = buildDayMapUrl(o.route);
+  if(mapFrame.src && mapFrame.src !== 'about:blank') mapFrame.src = buildDayMapUrl(o.route);
+  else lazyLoadMap(mapFrame);
   mapTabs.querySelectorAll('.map-tab').forEach((t,i)=>t.classList.toggle('active', i===idx));
   if(o.day){
     mapSidebar.innerHTML = `<h4>${o.day.title} · ${o.day.date}</h4><ul>${o.day.timeline.map(t=>`<li><div class="t">${t[0]}</div><div class="p">${t[1]}</div><div class="s">${t[2]}</div></li>`).join('')}</ul>`;
@@ -914,6 +934,31 @@ mapTabs.addEventListener('click', e=>{
 });
 showMap(0);
 
+/* Lazy-load map iframes when they enter the viewport */
+function lazyLoadMap(el){
+  if(!el || el.dataset.loaded === '1') return;
+  const src = el.dataset.src;
+  if(!src) return;
+  el.src = src;
+  el.dataset.loaded = '1';
+}
+const mapObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) lazyLoadMap(entry.target);
+  });
+}, {rootMargin:'200px 0px'});
+document.querySelectorAll('.lazy-map').forEach(el => mapObserver.observe(el));
+
+/* Click-to-play YouTube embeds (keeps page scroll smooth) */
+document.addEventListener('click', e=>{
+  const btn = e.target.closest('.yt-facade');
+  if(!btn) return;
+  const wrap = btn.closest('[data-yt-wrap]');
+  const id = btn.dataset.ytId;
+  if(!wrap || !id) return;
+  wrap.innerHTML = `<iframe src="${ytEmbed(id)}&autoplay=1" title="${btn.getAttribute('aria-label')}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+});
+
 /* Scroll progress bar */
 const progressBar = document.getElementById('progress');
 function updateProgress(){
@@ -926,15 +971,24 @@ document.addEventListener('scroll', updateProgress, {passive:true});
 updateProgress();
 
 /* Active nav highlighting via IntersectionObserver */
+const navInner = document.getElementById('navInner');
 const navLinks = Array.from(document.querySelectorAll('[data-nav]'));
 const sections = navLinks.map(l => document.getElementById(l.getAttribute('data-nav'))).filter(Boolean);
+let activeNavId = null;
+function scrollNavLinkIntoView(link){
+  if(!link || !navInner) return;
+  const left = link.offsetLeft - (navInner.clientWidth / 2) + (link.clientWidth / 2);
+  navInner.scrollTo({left: Math.max(0, left), behavior: 'smooth'});
+}
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
       const id = entry.target.id;
+      if(activeNavId === id) return;
+      activeNavId = id;
       navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('data-nav') === id));
-      const activeLink = document.querySelector(`[data-nav="${id}"]`);
-      if(activeLink) activeLink.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+      const activeLink = navLinks.find(l => l.getAttribute('data-nav') === id);
+      scrollNavLinkIntoView(activeLink);
     }
   });
 }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
